@@ -1567,6 +1567,38 @@ body.xmdLite .xKOkyvb,
 body.xmdLite .xLsRmys {
   transform:none !important;
 }
+body.xmdLite {
+  cursor:auto;
+}
+body.xmdLite .xKOkyvb {
+  cursor:auto;
+}
+body.xmdLite .xaFTfWb,
+body.xmdLite .xbQ0xQN {
+  display:none !important;
+  opacity:0 !important;
+}
+body.xmdLite .xFnnY3i,
+body.xmdLite .x5bOF2U,
+body.xmdLite .xbiCHYIO,
+body.xmdLite .xbsJJer4 {
+  opacity:1 !important;
+  transform:none !important;
+  animation:none !important;
+  transition:none !important;
+}
+body.xmdLite .xKOkyvb:hover,
+body.xmdLite .x5bOF2U:hover,
+body.xmdLite .x5bOF2U.x6mBTc9:hover,
+body.xmdLite .xbiCHYIO:hover,
+body.xmdLite .xbsJJer4:hover {
+  transform:none !important;
+}
+body.xmdLite .x5bOF2U.xcsYPUrz,
+body.xmdLite .xbiCHYIO.xcsYPUrz,
+body.xmdLite .xbsJJer4.xcsYPUrz {
+  animation:none !important;
+}
 .xmdChLs {
   margin:14px 0 0;
   display:flex;
