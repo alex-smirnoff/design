@@ -287,9 +287,9 @@ if (!xD) {
    TOOL CONFIG
 ───────────────────────────────────────────── */
 const TOOLS = {
-  intent:    { label:'Problem / goal',    color:'#3d6fff', glow:'rgba(61,111,255,0.18)' },
-  structure: { label:'Work structure', color:'#8833ff', glow:'rgba(136,51,255,0.18)' },
-  aim:       { label:'Business impact',       color:'#00ddff', glow:'rgba(0,221,255,0.18)'  }
+  intent:    { label:'Проблема (мета)',    color:'#3d6fff', glow:'rgba(61,111,255,0.18)' },
+  structure: { label:'Структура роботи', color:'#8833ff', glow:'rgba(136,51,255,0.18)' },
+  aim:       { label:'Бізнес-ефект',       color:'#00ddff', glow:'rgba(0,221,255,0.18)'  }
 };
 let activeTool = 'intent';
 
@@ -464,14 +464,14 @@ function initAiGuideDemo() {
   const routesNextBtn = document.getElementById('aiGuideRoutesNext');
   if (!section || !form || !input || !submit || !answerText || !status || !routesBox) return;
 
-  const AI_GUIDE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxWibvK8tl5tyRhxB6C7k4Ir55Z-bKX_WLUlPTu4zk_digbIS2HP8PWXaaQgaarYnqK/exec';
+  const AI_GUIDE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwSYcVzSOXLdQSx7YxhgnUOFvShtaXtuijBi6f_jWUAm2k2vkchA_k26SLG9jROeEDRug/exec';
   const AI_GUIDE_TIMEOUT_MS = 60000;
 
   const recommendationSections = {
     works: {
       type: 'section',
-      name: 'Cases',
-      desc: 'Core UX/UI, product, brand, and systems work.',
+      name: 'Кейси',
+      desc: 'Основні UX/UI, product, brand і системні роботи.',
       target: 'works',
       visual: 'works',
       image: './previews/QuickWins.png'
@@ -479,15 +479,15 @@ function initAiGuideDemo() {
     motionSection: {
       type: 'section',
       name: 'Motion',
-      desc: 'Video, animation, intros, and dynamic content.',
+      desc: 'Відео, анімація, заставки та динамічний контент.',
       target: 'motionSection',
       visual: 'motion',
       video: './previews/aboutKPMGpreview.mp4'
     },
     printedSection: {
       type: 'section',
-      name: 'Print',
-      desc: 'Brochures, flyers, posters, certificates, and prepress.',
+      name: 'Друк',
+      desc: 'Брошури, листівки, плакати, сертифікати та prepress.',
       target: 'printedSection',
       visual: 'printed',
       image: './previews/hrBrochurePreview.png'
@@ -495,15 +495,15 @@ function initAiGuideDemo() {
     socialSection: {
       type: 'section',
       name: 'SMM',
-      desc: 'Posts, carousels, campaigns, and social media content.',
+      desc: 'Пости, каруселі, кампанії та контент для соцмереж.',
       target: 'socialSection',
       visual: 'social',
       image: './previews/dogCarousel1.jpg'
     },
     footer: {
       type: 'section',
-      name: 'Contact',
-      desc: 'Form, email, and working links.',
+      name: 'Контакти',
+      desc: 'Форма, пошта та робочі посилання.',
       target: 'footer',
       visual: 'contact',
       image: './previews/myAvatar.png'
@@ -513,24 +513,24 @@ function initAiGuideDemo() {
   const recommendationCards = {
     'atlant-ai': {
       type: 'case',
-      name: 'Atlant AI web page',
-      desc: 'A UX/UI page for an AI startup, with responsive layout, components, and micro-animations.',
+      name: 'Веб-сторінка Atlant AI',
+      desc: 'UX/UI сторінка для AI-стартапу з адаптивом, компонентами та мікроанімаціями.',
       target: 'works',
       visual: 'works',
       video: './previews/atlant.webm'
     },
     'sa-merch': {
       type: 'case',
-      name: 'SA Consulting merch',
-      desc: 'Branded merch, prepress, and work with real media and contractors.',
+      name: 'Мерч SA Consulting',
+      desc: 'Брендований мерч, prepress і робота з реальними носіями та підрядниками.',
       target: 'works',
       visual: 'works',
       video: './previews/sneakers.mp4'
     },
     'metinvest-mascot-system': {
       type: 'case',
-      name: 'Mascot-based design system',
-      desc: 'Mascot, key visuals, internal communications, CSS animations, and an AI pipeline.',
+      name: 'Дизайн-система з маскотом',
+      desc: 'Маскот, key-visuals, внутрішні комунікації, CSS-анімації та AI-пайплайн.',
       target: 'works',
       visual: 'works',
       visualClass: 'is-cat-wide',
@@ -539,62 +539,62 @@ function initAiGuideDemo() {
     'alumni-mip-crm': {
       type: 'case',
       name: 'CRM AlumniMiP',
-      desc: 'An alumni dashboard: filters, profiles, cards, and product logic.',
+      desc: 'Дашборд для роботи з випускниками: фільтри, профілі, картки та product-логіка.',
       target: 'works',
       visual: 'works',
       video: './previews/alumniCRMnew.mp4'
     },
     'business-card-automation': {
       type: 'case',
-      name: 'Design automation',
-      desc: 'BPMN, UX, and a front-end service for automatically formatting branded materials.',
+      name: 'Автоматизація дизайну',
+      desc: 'BPMN, UX і front-end сервіс для автоматичного оформлення брендованих матеріалів.',
       target: 'works',
       visual: 'works',
       video: './previews/BusinessCard.webm'
     },
     'sticker-design-kit': {
       type: 'case',
-      name: 'Sticker pack and design kit',
-      desc: 'AI-assisted illustrations, stickers, presentations, email visuals, and a brand system.',
+      name: 'Стікер-пак і дизайн-кіт',
+      desc: 'AI-assisted ілюстрації, стікери, презентації, email-візуали та бренд-система.',
       target: 'works',
       visual: 'works',
       video: './previews/catSticker7.mp4'
     },
     'document-design': {
       type: 'case',
-      name: 'Document design',
-      desc: 'Legal design, document structure, brand style, and readability.',
+      name: 'Дизайн документів',
+      desc: 'Legal design, структура документів, фірмовий стиль і зручність сприйняття.',
       target: 'works',
       visual: 'works',
       video: './previews/docsPreview.mp4'
     },
     'presentation-design': {
       type: 'case',
-      name: 'Presentation design',
-      desc: 'Static and dynamic presentations, motion, 3D, and AI integration into the process.',
+      name: 'Дизайн презентацій',
+      desc: 'Статичні й динамічні презентації, motion, 3D і впровадження AI у процес.',
       target: 'works',
       visual: 'works',
       video: './previews/presentationPreview.mp4'
     },
     'brand-identity-system': {
       type: 'case',
-      name: 'SA Consulting brand identity',
-      desc: 'A full system from moodboard to templates, documents, presentations, and infographics.',
+      name: 'Фірмовий стиль SA Consulting',
+      desc: 'Повна система від мудборду до шаблонів, документів, презентацій та інфографіки.',
       target: 'works',
       visual: 'works',
       video: './previews/stylePrew6.mp4'
     },
     'product-case': {
       type: 'case',
-      name: 'This website is a product case',
-      desc: 'My own website as a product: logging, iterations, UX decisions, AI chat, and optimization.',
+      name: 'Цей сайт - product-кейс',
+      desc: 'Власний сайт як продукт: логування, ітерації, UX-рішення, AI-чат і оптимізація.',
       target: 'works',
       visual: 'works',
       image: './previews/planetFallback.png'
     },
     'motion-kpmg-commercial-video': {
       type: 'video',
-      name: 'Commercial video about KPMG',
+      name: 'Комерційний ролик про KPMG',
       target: 'motionSection',
       visual: 'video',
       video: './previews/aboutKPMGpreview.mp4',
@@ -602,7 +602,7 @@ function initAiGuideDemo() {
     },
     'motion-skyup-joinup-holiday-video': {
       type: 'video',
-      name: 'SkyUp & JoinUp! video',
+      name: 'Відео SkyUp & JoinUp!',
       target: 'motionSection',
       visual: 'video',
       video: './previews/CongratsToAlexAlba.mp4',
@@ -618,7 +618,7 @@ function initAiGuideDemo() {
     },
     'motion-pwc-ai-animation': {
       type: 'video',
-      name: 'Animation for PwC',
+      name: 'Анімація для PwC',
       target: 'motionSection',
       visual: 'video',
       video: './previews/PwCpreview.mp4',
@@ -626,7 +626,7 @@ function initAiGuideDemo() {
     },
     'motion-tsum-kyiv-intro': {
       type: 'video',
-      name: 'Intro animation for TSUM Kyiv',
+      name: 'Заставка для ЦУМ Київ',
       target: 'motionSection',
       visual: 'video',
       video: './previews/TSUMpreview.mp4',
@@ -634,7 +634,7 @@ function initAiGuideDemo() {
     },
     'motion-sa-consulting-intro-series': {
       type: 'video',
-      name: 'SA Consulting intro',
+      name: 'Інтро для SA Consulting',
       target: 'motionSection',
       visual: 'video',
       video: './previews/stylePreview.mp4',
@@ -642,7 +642,7 @@ function initAiGuideDemo() {
     },
     'motion-kpmg-reels': {
       type: 'video',
-      name: 'KPMG Reels',
+      name: 'Reels для KPMG',
       target: 'motionSection',
       visual: 'video',
       video: './previews/StoriesPreview.mp4',
@@ -650,7 +650,7 @@ function initAiGuideDemo() {
     },
     'motion-metinvest-css-animation': {
       type: 'video',
-      name: 'Metinvest CSS animation',
+      name: 'CSS-анімація для Метінвесту',
       target: 'motionSection',
       visual: 'video',
       image: './previews/catAnimated.svg',
@@ -658,7 +658,7 @@ function initAiGuideDemo() {
     },
     'motion-kpmg-targeted-ad': {
       type: 'video',
-      name: 'Targeted ad',
+      name: 'Таргетована реклама',
       target: 'motionSection',
       visual: 'video',
       video: './previews/targetPreview.mp4',
@@ -666,7 +666,7 @@ function initAiGuideDemo() {
     },
     'motion-kpmg-screensaver': {
       type: 'video',
-      name: 'Screensaver for KPMG',
+      name: 'Screensaver для KPMG',
       target: 'motionSection',
       visual: 'video',
       video: './previews/screensaverPreview.mp4',
@@ -674,7 +674,7 @@ function initAiGuideDemo() {
     },
     'printed-hr-brochure': {
       type: 'photo',
-      name: 'HR brochure',
+      name: 'HR-буклет',
       target: 'printedSection',
       visual: 'photo',
       image: './previews/hrBrochurePreview.png',
@@ -682,7 +682,7 @@ function initAiGuideDemo() {
     },
     'printed-skyup-joinup-card': {
       type: 'photo',
-      name: 'SkyUp & JoinUp! card',
+      name: 'Листівка SkyUp & JoinUp!',
       target: 'printedSection',
       visual: 'photo',
       image: './previews/CongratsToAlexAlbaImg.png',
@@ -690,7 +690,7 @@ function initAiGuideDemo() {
     },
     'printed-medical-flyer': {
       type: 'photo',
-      name: 'Medical flyer',
+      name: 'Медична листівка',
       target: 'printedSection',
       visual: 'photo',
       image: './previews/medicalBrochurePreview.png',
@@ -698,7 +698,7 @@ function initAiGuideDemo() {
     },
     'printed-corporate-certificate': {
       type: 'photo',
-      name: 'Corporate certificate',
+      name: 'Корпоративний сертифікат',
       target: 'printedSection',
       visual: 'photo',
       image: './previews/certificatePreview.png',
@@ -706,7 +706,7 @@ function initAiGuideDemo() {
     },
     'printed-corporate-posters': {
       type: 'photo',
-      name: 'Corporate posters',
+      name: 'Корпоративні плакати',
       target: 'printedSection',
       visual: 'photo',
       image: './previews/postersPreview.png',
@@ -714,7 +714,7 @@ function initAiGuideDemo() {
     },
     'printed-career-fair-rollup': {
       type: 'photo',
-      name: 'Roll-up for a career fair',
+      name: 'Рол-ап для ярмарки вакансій',
       target: 'printedSection',
       visual: 'photo',
       image: './previews/rollUpPreview.png',
@@ -722,7 +722,7 @@ function initAiGuideDemo() {
     },
     'smm-kpmg-workdays-carousel': {
       type: 'photo',
-      name: 'KPMG SMM carousel',
+      name: 'SMM-карусель KPMG',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/dogCarousel1.jpg',
@@ -737,7 +737,7 @@ function initAiGuideDemo() {
     },
     'smm-metinvest-career-post': {
       type: 'photo',
-      name: 'Metinvest career post',
+      name: 'Кар’єрний пост Метінвест',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/jobPostPreview.png',
@@ -745,7 +745,7 @@ function initAiGuideDemo() {
     },
     'smm-coffee-shop-opening-post': {
       type: 'photo',
-      name: 'Coffee shop post',
+      name: 'Пост про кав’ярню',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/coffeeShopOpeningPost.png',
@@ -753,7 +753,7 @@ function initAiGuideDemo() {
     },
     'smm-privatbank-concept-target': {
       type: 'photo',
-      name: 'PrivatBank concept',
+      name: 'Концепт для ПриватБанку',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/privatBankPost3.png',
@@ -761,7 +761,7 @@ function initAiGuideDemo() {
     },
     'smm-privatbank-concept-spark': {
       type: 'photo',
-      name: 'PrivatBank concept',
+      name: 'Концепт ПриватБанку',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/privatBankPost2.png',
@@ -769,7 +769,7 @@ function initAiGuideDemo() {
     },
     'smm-sa-consulting-carousel': {
       type: 'photo',
-      name: 'SA Consulting carousel',
+      name: 'Карусель SA Consulting',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/saCarousel1.png',
@@ -786,7 +786,7 @@ function initAiGuideDemo() {
     },
     'smm-kpmg-delo-ua-post': {
       type: 'photo',
-      name: 'KPMG x Delo.ua post',
+      name: 'Пост KPMG x Delo.ua',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/deloUApost.jpg',
@@ -794,7 +794,7 @@ function initAiGuideDemo() {
     },
     'smm-metinvest-internship-post': {
       type: 'photo',
-      name: 'Internship post',
+      name: 'Пост про стажування',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/internshipHorizontalPost.png',
@@ -810,7 +810,7 @@ function initAiGuideDemo() {
     },
     'smm-metro-concept': {
       type: 'photo',
-      name: 'Metro concept',
+      name: 'Концепт для Metro',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/metro.png',
@@ -818,7 +818,7 @@ function initAiGuideDemo() {
     },
     'smm-tochka-zrostu-key-visual': {
       type: 'photo',
-      name: 'Growth Point key visual',
+      name: 'Key-visual Точка зросту',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/tochkaZrostu.png',
@@ -826,7 +826,7 @@ function initAiGuideDemo() {
     },
     'smm-metinvest-viber-posts': {
       type: 'photo',
-      name: 'Metinvest Viber posts',
+      name: 'Viber-пости Метінвест',
       target: 'socialSection',
       visual: 'photo',
       image: './previews/rectPostNew1.png',
@@ -850,8 +850,8 @@ function initAiGuideDemo() {
 
   const routes = {
     contacts: {
-      name: 'Contact',
-      desc: 'A quick path to the form, email, and working links.',
+      name: 'Контакти',
+      desc: 'Швидкий шлях до форми, пошти та робочих посилань.',
       target: 'footer',
       visual: 'contact',
       image: './previews/myAvatar.png'
@@ -860,42 +860,42 @@ function initAiGuideDemo() {
 
   const PREPARED_ANSWER_DELAY_MS = 420;
   const preparedQuestionAnswers = {
-    revisions: `Revisions are an essential part of the process. If something is off, it is better to learn that right away than to guess. The longer I work in design, the more I understand that design is about communication, not moving pixels around. You need to understand the business requirement and the client’s vision. Visuals are not transmitted telepathically, so I ask questions, clarify, and if something does not work, I explain and fix it.
-I do not step back when things get difficult. I iterate and look at feedback. Einstein said it is foolish to do the same thing and expect a different result. For design, especially UX/UI and product design, that is a fundamental position.
+    revisions: `Правки — невід'ємна частина процесу. Якщо щось не так — краще дізнатися одразу, ніж здогадуватися. Чим довше я працюю в дизайні, тим більше розумію: дизайн — це про комунікацію, а не про рухання пікселів. Треба зрозуміти бізнес-вимогу, зрозуміти візію клієнта. Картинки телепатично не передаються — тому я ставлю питання, уточнюю, і якщо щось не подобається — прояснюю та виправляю.
+Я не відступаю, коли є складнощі. Ітерую, дивлюся на фідбек. Ейнштейн казав: глупо робити одне й те саме та очікувати інший результат. Для дизайну — особливо UX/UI та product — це фундаментальна позиція.
 <<<JSON
 {"recommendations":[{"type":"case","id":"product-case"}]}
 >>>`,
-    'job-change': `I want growth and development. I keep learning new things. I dream of working in a strong team, at a company that leads the market forward. I have outgrown my current context and want truly ambitious products and room to grow. I am ready to relocate.`,
-    companies: `Key names include KPMG Ukraine, Metinvest-SMC, SA Consulting, PwC, SkyUp & JoinUp!, TSUM Kyiv, and EuroTolerCulture / Erasmus+. These are different industries and different types of tasks, from corporate design systems to commercial videos and product interfaces. Details are in the cases.
+    'job-change': `Я прагну росту й розвитку. Постійно вчуся новому. Мрію працювати в потужній команді, у компанії, яка веде ринок за собою. Поточний контекст я переріс — хочу справді амбітних продуктів і простору для зростання. Готовий до релокації.`,
+    companies: `Серед ключових — KPMG Ukraine, Metinvest-SMC, SA Consulting, PwC, SkyUp & JoinUp!, ЦУМ Київ, EuroTolerCulture / Erasmus+. Це різні індустрії та різні типи задач — від корпоративних дизайн-систем до комерційних роликів і продуктових інтерфейсів. Деталі — в кейсах.
 <<<JSON
 {"recommendations":[{"type":"case","id":"metinvest-mascot-system"},{"type":"video","id":"motion-kpmg-commercial-video"},{"type":"video","id":"motion-pwc-ai-animation"},{"type":"case","id":"brand-identity-system"}]}
 >>>`,
-    'best-case': `Probably this website. I designed and coded it myself. After launch, conversion was low. I did not step back: I added logging, analyzed user behavior, reworked onboarding, added a script that adapts animation to the device’s capabilities, added an AI chat, and built a surprise section. I continue to iterate. That is the product approach: not “ship and forget,” but a living process based on data.
+    'best-case': `Мабуть, цей сайт. Я задизайнив і закодив його самотужки. Після запуску — низька конверсія. Я не відступив: прикріпив логування, проаналізував поведінку користувачів, переробив онбординг, додав скрипт адаптації анімації під можливості девайса, AI-чат і секцію-сюрприз. Продовжую ітерувати. Це і є продуктовий підхід — не "здав і забув", а живий процес на основі даних.
 <<<JSON
 {"recommendations":[{"type":"case","id":"product-case"}]}
 >>>`,
-    tasks: `Motion, UX/UI, brand, graphic, SMM, prepress, and partly front-end. The broad profile is not an accident. My entire professional life has unfolded under wartime conditions. The market shrank, and I had to cover more tasks myself. That is how I grew into a design generalist.
+    tasks: `Motion, UX/UI, Brand, Graphic, SMM, Prepress — і частково Front-end. Широкий профіль — не випадковість. Все моє професійне життя відбувалося в умовах війни. Ринок стискався, і треба було закривати більше завдань самому. Так і виріс у Design Generalist.
 <<<JSON
 {"recommendations":[{"type":"case","id":"product-case"},{"type":"case","id":"atlant-ai"},{"type":"case","id":"metinvest-mascot-system"},{"type":"case","id":"brand-identity-system"},{"type":"video","id":"motion-kpmg-commercial-video"},{"type":"photo","id":"smm-kpmg-workdays-carousel"},{"type":"case","id":"sa-merch"}]}
 >>>`,
-    concerns: `Only one thing: when people make it personal. Revisions, mistakes, and iterations are normal. Successful products go through many iterations to calibrate the interface and tune the visuals. I always try to do the best I can. But no one does everything perfectly, and insulting people for that is unacceptable to me.`,
-    'filter-uxui': `I handle UX/UI from wireframe to a final layout with autolayout, components, and all states, including handoff to developers. I actively use AI tools. I can design in Figma and directly in front-end code. I know HTML/CSS/JS. I understand product logic: I study user behavior and iterate based on data, not feelings.
+    concerns: `Лише одне — коли люди переходять на особистості. Правки, помилки, ітерації — це норма. Успішні продукти проходять далеко не одну ітерацію, щоб відкалібрувати інтерфейс і підлаштувати візуал. Я завжди стараюся зробити все на максимум своїх можливостей. Але жодна людина не робить все ідеально — і коли за це починають ображати, це для мене неприйнятно.`,
+    'filter-uxui': `Займаюся UX/UI від wireframe до готового макету з автолейаутом, компонентами і всіма станами, а також із подальшою передачею розробникам. Активно використовую AI-засоби. Можу дизайнити як у Figma, так і безпосередньо у front-end коді. Знаю HTML/CSS/JS. Розумію продуктову логіку: досліджую поведінку користувачів, ітерую на основі даних, а не відчуттів.
 <<<JSON
 {"recommendations":[{"type":"case","id":"atlant-ai"},{"type":"case","id":"alumni-mip-crm"},{"type":"case","id":"business-card-automation"},{"type":"case","id":"product-case"},{"type":"case","id":"metinvest-mascot-system"}]}
 >>>`,
-    'filter-product': `For me, a product approach is not just “making it look pretty.” It is logging, behavior analysis, and iterations based on real data. That is exactly how I worked on this website: launched it, saw the problem, reworked it, and measured again.
+    'filter-product': `Продуктовий підхід для мене — це не просто "красиво намалювати". Це логування, аналіз поведінки, ітерації на основі реальних даних. Саме так я працював над цим сайтом: запустив — побачив проблему — переробив — виміряв знову.
 <<<JSON
 {"recommendations":[{"type":"case","id":"product-case"},{"type":"case","id":"business-card-automation"},{"type":"case","id":"alumni-mip-crm"}]}
 >>>`,
-    'filter-interaction': `Interaction is about how an interface responds to a person: micro-animations, states, transitions, and the behavioral logic of elements. I work with Rive, Lottie, and hand-built CSS animations, and I know when each option makes sense.
+    'filter-interaction': `Interaction — це про те, як інтерфейс реагує на людину. Мікроанімації, стани, переходи, логіка поведінки елементів. Я працюю з Rive, Lottie, CSS-анімаціями вручну — і знаю, коли що доречно.
 <<<JSON
 {"recommendations":[{"type":"case","id":"product-case"},{"type":"case","id":"business-card-automation"},{"type":"video","id":"motion-metinvest-css-animation"},{"type":"case","id":"metinvest-mascot-system"}]}
 >>>`,
-    'filter-motion': `Full pipeline: storyboard, After Effects, rotoscoping, track mattes, expressions, and audio sync. I worked for KPMG, PwC, SkyUp, and TSUM. I use AI tools — Firefly, Wan, Veo, Kling, and many others — but I know where they help and where manual work is better.
+    'filter-motion': `Повний пайплайн: розкадровка, After Effects, ротоскопінг, трекмати, expressions, синхронізація з аудіо. Працював для KPMG, PwC, SkyUp, ЦУМ. Використовую AI — Firefly, Wan, Veo, Kling та багато інших — але знаю, де він допомагає, а де краще зробити руками.
 <<<JSON
 {"recommendations":[{"type":"video","id":"motion-kpmg-commercial-video"},{"type":"video","id":"motion-kpmg-ukrainian-gateway"},{"type":"video","id":"motion-pwc-ai-animation"},{"type":"video","id":"motion-tsum-kyiv-intro"},{"type":"video","id":"motion-skyup-joinup-holiday-video"},{"type":"video","id":"motion-sa-consulting-intro-series"},{"type":"case","id":"metinvest-mascot-system"}]}
 >>>`,
-    'filter-brand': `I have developed full brand systems, from moodboard to final materials: documents, presentations, merch, design kits, and mascots. I worked with SA Consulting and Metinvest-SMC. I understand a brand not as a logo, but as a system that works across every medium.
+    'filter-brand': `Розробляв повні брендові системи — від мудборду до фінальних матеріалів. Документи, презентації, мерч, дизайн-кіти, маскоти. Працював із SA Consulting і Metinvest-SMC. Розумію бренд не як логотип, а як систему, яка працює на всіх носіях.
 <<<JSON
 {"recommendations":[{"type":"case","id":"brand-identity-system"},{"type":"case","id":"metinvest-mascot-system"},{"type":"case","id":"sa-merch"},{"type":"case","id":"sticker-design-kit"},{"type":"case","id":"document-design"},{"type":"case","id":"presentation-design"}]}
 >>>`
@@ -1417,7 +1417,7 @@ I do not step back when things get difficult. I iterate and look at feedback. Ei
     }
 
     return {
-      text: cleanText || 'Here is what I recommend viewing for this request.',
+      text: cleanText || 'Ось що я раджу подивитися за цим запитом.',
       routes: buildRoutesFromRecommendations(recommendations)
     };
   }
@@ -1641,7 +1641,7 @@ I do not step back when things get difficult. I iterate and look at feedback. Ei
 
       const action = document.createElement('span');
       action.className = 'ai-guide-route-action';
-      action.textContent = 'Go';
+      action.textContent = 'Перейти';
 
       btn.appendChild(visual);
       btn.appendChild(name);
@@ -1892,7 +1892,7 @@ I do not step back when things get difficult. I iterate and look at feedback. Ei
     section.classList.remove('is-answer-ready');
     setThinking(true);
     renderRoutes([]);
-    setupAnswerContent(cleanQuestion, 'Generating an answer to the request');
+    setupAnswerContent(cleanQuestion, 'Генерація відповіді на запит');
     resetAnswerAutoScroll();
     setAnswerScrollTop(0);
     requestAnswerBoxHeightSync();
@@ -1928,7 +1928,7 @@ I do not step back when things get difficult. I iterate and look at feedback. Ei
     section.classList.remove('is-answer-ready');
     setThinking(true);
     renderRoutes([]);
-    setupAnswerContent(cleanQuestion, 'Generating an answer to the request');
+    setupAnswerContent(cleanQuestion, 'Генерація відповіді на запит');
     resetAnswerAutoScroll();
     setAnswerScrollTop(0);
     requestAnswerBoxHeightSync();
@@ -1955,7 +1955,7 @@ I do not step back when things get difficult. I iterate and look at feedback. Ei
 
       setThinking(false);
       section.classList.add('is-error');
-      typeAnswer('Error. Failed to generate the answer.', cleanQuestion);
+      typeAnswer('Помилка. Не вдалося згенерувати відповідь.', cleanQuestion);
       renderRoutes([]);
       requestAiResultVisibilitySync(false);
       rememberAiGuideAnalyticsContext('gemini error', 'free prompt', cleanQuestion, []);
@@ -3784,10 +3784,10 @@ function showProductCaseNarrator() {
   narHidden = false;
   narText.style.opacity = '0';
   const timerId = setTimeout(() => {
-    narFrom.textContent = '— Space story';
+    narFrom.textContent = '— Історія космосу';
     narText.style.opacity = '1';
     nar.classList.add('show');
-    typeWriter('I had an idea: a cosmic sci-fi experience with control panels and a layered narrative. The concept felt deep, and with careful visuals, it should have attracted attention and encouraged collaboration on its own. The message was: look, here is a creative specialist with a strong technical base. ||| <div style="height:12px;"></div> ||| But after the website launched, the feedback was far from what I expected. I saw that people visited the site, but they did not stay or return. ||| <div style="height:12px;"></div> ||| I was upset. But I did not step back. Okay, the result was unsatisfactory, but now I knew the site had low conversion. You are a designer. You know what to do with low conversion. ||| <div style="height:12px;"></div> ||| I needed to dig deeper. I attached logging to key actions. I did it carefully and minimally to avoid violating GDPR. Then I looked at the logs. ||| <div style="height:12px;"></div> ||| The first destructive element was onboarding. Earlier, I thought a detailed 9-step tour with animation mode selection and a story about me as a person was a great idea. But users did not want to read that much. They simply left the site before even scrolling down to the work. This is how it looked at the beginning: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/firstIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Click here to enlarge</div></div></div> ||| I started reshaping the onboarding. The work became closer to the user. Now only the animation mode stood between them and the page, while the rest of onboarding was reduced to 4 steps and shown exactly where it mattered: next to the cases section. ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/secondIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Click here to enlarge</div></div></div> |||  In the logs, I saw that people started scrolling deeper and clicking on cases. A few emails from recruiters came in. So I was moving in the right direction. From that point on, I wanted the main screen to be open immediately, without any overlay blocking it. To make that work, I had to solve the animation mode problem. It mattered because weaker devices cannot handle many transformations, endless autoplay, and heavy media batches. First, I optimized the page’s media management with Codex by OpenAI. Second, I created a script that automatically adapts the animation mode to the device’s capabilities. Finally, the user flow became logical, and nothing blocks the main page: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/thirdIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Click here to enlarge</div></div></div> ||| The logs became consistently better, although conversion was still not where I wanted it to be. That led me to the next important change: diversifying the UX. Before, the page was rich in material, but visually too uniform. There was no wow effect. And that is exactly what helps cultivate the impulse to collaborate. Today, anyone can make a website, even if it looks templated. But not everyone can design a unique user experience. So I added the surprise section, artificial intelligence, and normalized the case visuals. ||| <div style="height:12px;"></div> ||| Before, it looked like this: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fourthIterationBefore.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Click here to enlarge</div></div></div> ||| And now it looks like this: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fourthIterationAfter.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Click here to enlarge</div></div></div> ||| And this is still far from the finish line. I continue to study user behavior, experiment, and develop my product. Despite the difficulties of war in the place where I live now, despite fear, despite the poor initial feedback. This story probably describes my way of thinking best. I do not step back when I see failure. I try to understand why it happened and how to change the system to succeed. I believe this is the mindset of a real product designer, the kind I want to become.');
+    typeWriter('У мене виникла ідея: космічний sci-fi з пультами управління та багатошаровим наративом. Концепт видавався мені глибоким і мав би сам собою, за умови акуратного візуалу, привернути увагу та спонукати до співпраці. Мовляв, дивіться: креативний спеціаліст із потужною технічною базою. ||| <div style="height:12px;"></div> ||| Але після запуску ресурсу фідбек був далеким від очікуваного. Я бачив, що сайт відвідують, але на ньому не затримуються й не повертаються. ||| <div style="height:12px;"></div> ||| Я засмутився. Але не відступив. Окей, результат незадовільний, але тепер ти знаєш, що у сайту низька конверсія. Ти ж дизайнер. Ти же знаєш, що робити із низькою конверсією. ||| <div style="height:12px;"></div> ||| Потрібно було копати глибше. Я прикріпив логування до ключових дій. Зробив це акуратно, по мінімуму, щоб не порушити GDPR. І поглянув на логи. ||| <div style="height:12px;"></div> ||| Першим деструктивним елементом був онбординг. Раніше мені здавалося, що детальна екскурсія із 9 кроків, із вибором режиму анімації та розповіддю про мене як особистість — крута ідея. Але користувачі не хотіли багато читати. І просто йшли із сайту, навіть не догортавши до робіт. Ось як це виглядало на початку: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/firstIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| Я почав реформатувати онбординг. Роботи стали ближчими для юзера. Тепер їх відділяв лише режим анімації, а решта онбордингу була скорочена до 4 кроків і показувалася безпосередньо там, де це справді актуально: біля секції з кейсами. ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/secondIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> |||  У логах я побачив, що люди почали гортати сторінку глибше, клацали на кейси. Прийшло кілька листів із питаннями від рекрутерів. Отже, я рухався у правильному напрямку. Відтепер мені хотілося взагалі не закривати головний екран. Щоб сторінка показувалася юзеру одразу. Для цього треба було вирішити проблему з вибором режиму анімацію. Він був важливим. Адже слабкі девайси не тягнуть велику кількість трансформацій, безкінечний автоплей і пачки медіа. По-перше, я оптимізував медіа-менеджмент сторінки за допомогою Codex від Open AI. По-друге, придумав скрипт, який самостійно підлаштовує режим анімації під можливості девайса. Нарешті юзер-флоу став логічним, нічого не закриває основну сторінку: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/thirdIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| Логи стали стабільно кращими. Хоча конверсія все ще була не на висоті. Так я прийшов до наступної важливої зміни: урізноманітнення UX. Раніше сторінка була насичена матеріалом, але... візуально одноманітною. Не було вау-ефекту. А саме це потрібно для того, щоб культивувати імпульс співпраці. Бо зараз кожен може зробити сайт, хай і візуально шаблонний. Але далеко не кожен може проєктувати унікальний користувацький досвід. І так я додав секцію-сюрприз, штучний інтелект, а також унормував візуали кейсів. ||| <div style="height:12px;"></div> ||| Раніше було ось так: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fourthIterationBefore.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| А стало так: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fourthIterationAfter.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| І це ще далеко не фініш. Я продовжую вивчати поведінку користувачів, експериментувати й розвивати свій продукт. Попри складнощі війни в тому місці, де я зараз живу, попри страх, попри початковий поганий фідбек. Мабуть, описане найкраще характеризує мій процес мислення. Я не відступаю, коли бачу невдачу, а намагаюся зрозуміти, чому так трапилося і як змінити систему, щоб досягти успіху. Я вважаю, що це мислення справжнього продуктового дизайнера, яким я мрію стати.');
   }, 160);
   activeTimers.push(timerId);
 }
@@ -3800,7 +3800,7 @@ function initDetailsButtons() {
     
     const btn = document.createElement('button');
     btn.className = 'details-btn';
-    btn.textContent = 'Explore case';
+    btn.textContent = 'Детальніше';
     
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -3862,10 +3862,10 @@ document.querySelectorAll('.motion-card-cta').forEach(link => {
 
 function showDefaultNarrator() {
   if (!nar || !narText || !narFrom) return;
-  narFrom.textContent = '— Cosmic mission';
+  narFrom.textContent = '— Космічна місія';
   narText.style.opacity = '1';
   nar.classList.add('show');
-  typeWriter('I bring creative industries together with technical expertise.');
+  typeWriter('Я поєдную креативні індустрії з технічною експертизою.');
 }
 
 function showDefaultNarratorIfIdle() {
@@ -4157,7 +4157,7 @@ function updateWorkScrollParallax() {
     const elementCenter = rect.top + scrollY + rect.height / 2;
     const distance = (elementCenter - viewportCenter) / viewportHalf;
     
-    // Enhanced 3D parallax
+    // Усиленный 3D параллакс
     const rotX = distance * 18;
     const rotZ = Math.abs(distance) * 8;
     const scaleEffect = 1 - Math.abs(distance) * 0.08;
@@ -4274,22 +4274,22 @@ const obBackdrop = document.getElementById('obBackdrop');
 const hiRing     = document.getElementById('hiRing');
  
 let tipStep = 0;
-let currentTargetEl  = null;   // element currently highlighted
-let currentTipEl     = null;   // tip card currently shown
-let resizeRAF        = null;   // requestAnimationFrame for resize debounce
+let currentTargetEl  = null;   // елемент, який підсвічується зараз
+let currentTipEl     = null;   // картка-підказка, що показується зараз
+let resizeRAF        = null;   // requestAnimationFrame для resize-debounce
  
 /* ─────────────────────────────────────────────
-   UTILITY: positioning the card relative to the target
-   Priority order: right → top → left → bottom
-   The card NEVER overlaps the target
+   УТИЛІТА: позиціонування картки відносно target
+   Порядок пріоритетів: right → top → left → bottom
+   Картка НІКОЛИ не перекриває target
 ───────────────────────────────────────────── */
-const TIP_GAP    = 16;   // px between the card and ring/target
-const TIP_MARGIN = 12;   // minimum offset from viewport edges
+const TIP_GAP    = 16;   // px між карткою та ring/target
+const TIP_MARGIN = 12;   // мінімальний відступ від країв viewport
  
 function positionTipCard(tipEl, targetRect) {
   if (!tipEl || !targetRect) return;
  
-  /* reset previous inline position styles */
+  /* скидаємо попередні інлайн-стилі позиції */
   tipEl.style.top    = '';
   tipEl.style.left   = '';
   tipEl.style.right  = '';
@@ -4322,7 +4322,7 @@ function positionTipCard(tipEl, targetRect) {
  
   const tr = targetRect; // target rect (viewport-relative)
  
-  /* 4 position options: right, top, left, bottom */
+  /* 4 варіанти позиції: right, top, left, bottom */
   const candidates = [
     {
       name: 'top',
@@ -4352,7 +4352,7 @@ function positionTipCard(tipEl, targetRect) {
     candidates.sort((a, b) => (a.name === 'right' ? -1 : b.name === 'right' ? 1 : 0));
   }
  
-  /* first option that fully fits in the viewport */
+  /* перший варіант, який повністю вміщується у viewport */
   const chosen = candidates.find(c =>
     c.left >= TIP_MARGIN &&
     c.top  >= TIP_MARGIN &&
@@ -4369,7 +4369,7 @@ function positionTipCard(tipEl, targetRect) {
   tipEl.style.top       = chosen.top  + 'px';
   tipEl.style.transform = 'none';
  
-  /* scroll so both the target and the card are visible */
+  /* прокручуємо так, щоб і target, і картка були видимі */
   ensureBothVisible(targetRect, {
     left: chosen.left, top: chosen.top,
     right: chosen.left + tw, bottom: chosen.top + th,
@@ -4380,7 +4380,7 @@ function clamp(val, min, max) {
   return Math.max(min, Math.min(max, val));
 }
  
-/* smooth scroll so both elements enter the viewport */
+/* плавний скрол, щоб обидва елементи потрапили у viewport */
 function ensureBothVisible(targetRect, tipRect) {
   const padding = 24;
   const combinedTop    = Math.min(targetRect.top,    tipRect.top)    - padding;
@@ -4397,7 +4397,7 @@ function ensureBothVisible(targetRect, tipRect) {
 }
  
 /* ─────────────────────────────────────────────
-   HIGHLIGHT RING — position/size update
+   HIGHLIGHT RING — оновлення позиції/розміру
 ───────────────────────────────────────────── */
 function updateRing(targetEl) {
   if (!hiRing || !targetEl) return;
@@ -4439,7 +4439,7 @@ function settleTipPosition(times = 5, delay = 140) {
 }
  
 /* ─────────────────────────────────────────────
-   RESIZE / SCROLL — recalculate everything
+   RESIZE / SCROLL — перераховуємо все
 ───────────────────────────────────────────── */
 function onViewportChange() {
   if (!currentTargetEl || !currentTipEl) return;
@@ -4453,11 +4453,11 @@ window.addEventListener('resize', onViewportChange);
 window.addEventListener('scroll', onViewportChange, { passive: true });
  
 /* ─────────────────────────────────────────────
-   showTip(n) — main function
+   showTip(n) — головна функція
 ───────────────────────────────────────────── */
  
-/* map: step → { targetSelector, targetId, targetClass }
-   null = screen center (no highlight) */
+/* mapа: крок → { targetSelector, targetId, targetClass }
+   null = центр екрану (без підсвітки) */
 const TIP_TARGETS = {
   2: { id: 'toolbar' },
   3: { id: 'btn-intent' },
@@ -4523,7 +4523,7 @@ function showTip(n) {
   const targetEl  = resolveTarget(targetCfg);
 
   tip.style.display     = '';
-  tip.style.visibility  = 'hidden'; // hide until final position
+  tip.style.visibility  = 'hidden'; // прячем до финальной позиции
 
   requestAnimationFrame(() => requestAnimationFrame(() => {
     tip.classList.add('show');
@@ -4536,7 +4536,7 @@ function showTip(n) {
         currentTipEl    = tip;
         requestAnimationFrame(() => requestAnimationFrame(() => {
           settleTipPosition();
-          tip.style.visibility = ''; // show only after positioning
+          tip.style.visibility = ''; // показываем только после позиционирования
         }));
       }, 400);
     } else {
@@ -4544,7 +4544,7 @@ function showTip(n) {
       tip.style.top        = '50%';
       tip.style.left       = '50%';
       tip.style.transform  = 'translate(-50%,-50%)';
-      tip.style.visibility = ''; // no target — show immediately
+      tip.style.visibility = ''; // без target — сразу показываем
     }
   }));
 } 
@@ -4555,7 +4555,7 @@ if (document.readyState === 'loading') {
 }
  
 /* ─────────────────────────────────────────────
-   STEP NAVIGATION
+   НАВІГАЦІЯ МІЖ КРОКАМИ
 ───────────────────────────────────────────── */
 document.getElementById('tipN2')?.addEventListener('click', () => {
   trackEvent('case onboarding step 1 next');
@@ -4571,7 +4571,7 @@ document.getElementById('tipN3')?.addEventListener('click', () => {
   showTip(4);
 });
  
-/* Step 3 → 4: click the tool */
+/* Крок 3 → 4: клік по інструменту */
 document.querySelectorAll('.tool-btn[data-tool]').forEach(btn => {
   btn.addEventListener('click', () => {
     if (document.getElementById('tip3')?.classList.contains('show')) {
@@ -4581,7 +4581,7 @@ document.querySelectorAll('.tool-btn[data-tool]').forEach(btn => {
   });
 });
  
-/* Step 4 → 5: hover over the visual */
+/* Крок 4 → 5: hover по візуалу */
 const firstWorkVis = document.querySelector('.work .work-visual');
 if (firstWorkVis) {
   firstWorkVis.addEventListener('mouseenter', e => {
@@ -4598,7 +4598,7 @@ document.getElementById('tipN4')?.addEventListener('click', () => {
   showTip(5);
 });
  
-/* Step 5: completion or closing */
+/* Крок 5: завершення або закриття */
 const firstDetailsBtn = document.querySelector('.work .details-btn');
 if (firstDetailsBtn) {
   firstDetailsBtn.addEventListener('click', e => {
@@ -4673,9 +4673,9 @@ function setPartialMotionDisabled(disabled, options = {}) {
   if (motionBtn) {
     motionBtn.classList.toggle('active', heavyMotionEnabled);
     motionBtn.setAttribute('aria-pressed', String(heavyMotionEnabled));
-    motionBtn.title = heavyMotionEnabled ? 'Disable rich animations' : 'Enable rich animations';
+    motionBtn.title = heavyMotionEnabled ? 'Вимкнути важкі анімації' : 'Увімкнути важкі анімації';
     const label = motionBtn.querySelector('.tlabel');
-    if (label) label.textContent = heavyMotionEnabled ? 'Full animations' : 'Basic animations';
+    if (label) label.textContent = heavyMotionEnabled ? 'Анімації максимум' : 'Базові анімації';
   }
   if (motionIcon) motionIcon.innerHTML = heavyMotionEnabled ? MOTION_ICON_ON : MOTION_ICON_OFF;
 
@@ -5111,7 +5111,7 @@ async function enableAmbientAudio() {
   if (soundIcon) {
     soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
   }
-  soundBtn?.querySelector('.tlabel') && (soundBtn.querySelector('.tlabel').textContent = 'Sound on');
+  soundBtn?.querySelector('.tlabel') && (soundBtn.querySelector('.tlabel').textContent = 'Звук увімкнено');
 }
 
 if (soundBtn) {
@@ -5123,7 +5123,7 @@ if (soundBtn) {
       ambGain.gain.setTargetAtTime(0, actx.currentTime, .6);
       soundBtn.classList.remove('active');
       soundIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
-      soundBtn.querySelector('.tlabel').textContent = 'Sound off';
+      soundBtn.querySelector('.tlabel').textContent = 'Звук вимкнено';
     }
   });
 }
@@ -5772,7 +5772,7 @@ if (!viewportImageLoadObserver) {
 // ═══════════════════════════════════════════════════════════════
 
 (function () {
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyirWlm-m0eiFEUND8llLR3CginCxDQE2wqrDp1yuyIv3HrKqRW_xiqtBG42wFbbqtq3A/exec'; // ← here
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyirWlm-m0eiFEUND8llLR3CginCxDQE2wqrDp1yuyIv3HrKqRW_xiqtBG42wFbbqtq3A/exec'; // ← сюда
  
   const form   = document.getElementById('contactForm');
   const btn    = document.getElementById('ffBtn');
@@ -5811,7 +5811,7 @@ if (!viewportImageLoadObserver) {
   function showInvalidFormHint(duration = 0) {
     clearTimeout(invalidHintTimer);
     resultStatusPinned = false;
-    status.textContent = 'Please fill in all fields. Please include @ in your email address.';
+    status.textContent = 'Заповніть усі поля. Не забудьте @ в email.';
     status.className   = 'ff-status err';
 
     if (duration) {
@@ -5909,7 +5909,7 @@ if (!viewportImageLoadObserver) {
     if (!validateForm()) return;
 
     btn.disabled = true;
-    btn.querySelector('.ff-btn-text').textContent = 'Sending...';
+    btn.querySelector('.ff-btn-text').textContent = 'Надсилаю...';
     resultStatusPinned = false;
     status.textContent = '';
     status.className   = 'ff-status';
@@ -5947,17 +5947,17 @@ if (!viewportImageLoadObserver) {
         throw new Error(data.error || 'Server error');
       }
 
-      status.textContent = '✓ Message sent. I’ll get back to you soon.';
+      status.textContent = '✓ Повідомлення надіслано. Відповім найближчим часом.';
       status.className   = 'ff-status ok';
       resultStatusPinned = true;
       form.reset();
     } catch (err) {
-      status.textContent = 'Something went wrong. Please contact me directly: alexander.smirnoff98@gmail.com';
+      status.textContent = 'Щось пішло не так. Напишіть напряму: alexander.smirnoff98@gmail.com';
       status.className   = 'ff-status err';
       resultStatusPinned = true;
     } finally {
       clearTimeout(submitTimeout);
-      btn.querySelector('.ff-btn-text').textContent = 'Send';
+      btn.querySelector('.ff-btn-text').textContent = 'Надіслати';
       updateButtonState();
     }
   });
