@@ -414,9 +414,264 @@ body.touch-only-tools .lang-menu {
    HERO
 ═══════════════════════════════════════════════════════════════ */
 .hero {
+  --hero-main-glint-opacity:.42;
   display:flex; align-items:center; flex-wrap: wrap;
   padding:80px 8% 140px; position:relative; overflow:visible;
   max-width: 1600px; margin: 0 auto;
+}
+.hero::before,
+.hero::after {
+  content:'';
+  position:absolute;
+  pointer-events:none;
+  z-index:0;
+}
+.hero::before {
+  left:30%;
+  top:8%;
+  width:min(58vw, 820px);
+  height:min(50vw, 650px);
+  border-radius:50%;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(0,221,255,.10), transparent 25%),
+    radial-gradient(ellipse at 47% 58%, rgba(136,51,255,.15), transparent 42%),
+    radial-gradient(ellipse at 68% 44%, rgba(61,111,255,.17), transparent 48%),
+    radial-gradient(ellipse at 62% 70%, rgba(0,221,255,.10), transparent 42%);
+  -webkit-mask-image:radial-gradient(ellipse at 58% 52%, #000 0 57%, transparent 79%);
+  mask-image:radial-gradient(ellipse at 58% 52%, #000 0 57%, transparent 79%);
+  opacity:.3;
+  filter:blur(22px) saturate(1.12);
+  transform:rotate(-10deg);
+}
+.hero::after {
+  left:35%;
+  top:44%;
+  width:min(50vw, 720px);
+  height:150px;
+  border-radius:999px;
+  background:
+    linear-gradient(90deg, transparent, rgba(132,172,255,.18), rgba(0,221,255,.25), rgba(136,51,255,.20), transparent),
+    radial-gradient(ellipse at 52% 50%, rgba(61,111,255,.22), transparent 58%);
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 20% 76%, transparent 100%);
+  mask-image:linear-gradient(90deg, transparent 0, #000 20% 76%, transparent 100%);
+  opacity:var(--hero-main-glint-opacity);
+  filter:blur(9px) saturate(1.2);
+  transform:rotate(-8deg);
+}
+.hero-atmosphere {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  overflow:visible;
+}
+.hero-atmosphere::before,
+.hero-atmosphere::after {
+  content:'';
+  position:absolute;
+  pointer-events:none;
+  display:none;
+}
+.hero-atmosphere__plane {
+  position:absolute;
+  height:150px;
+  border-radius:999px;
+  background:
+    radial-gradient(ellipse at 42% 50%, rgba(132,172,255,.18), transparent 32%),
+    radial-gradient(ellipse at 58% 55%, rgba(136,51,255,.18), transparent 48%),
+    linear-gradient(90deg, transparent, rgba(61,111,255,.16), rgba(0,221,255,.10), rgba(136,51,255,.14), transparent);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 50%, #000 0 43%, rgba(0,0,0,.58) 62%, transparent 85%);
+  mask-image:radial-gradient(ellipse at 50% 50%, #000 0 43%, rgba(0,0,0,.58) 62%, transparent 85%);
+  filter:blur(20px) saturate(1.32);
+}
+.hero-atmosphere__plane-a {
+  left:34%;
+  top:24%;
+  width:min(40vw, 590px);
+  opacity:.57;
+  transform:rotate(-13deg);
+}
+.hero-atmosphere__plane-b {
+  left:43%;
+  top:60%;
+  width:min(38vw, 550px);
+  opacity:.5;
+  transform:rotate(-7deg);
+}
+.hero-atmosphere__plane-c {
+  left:18%;
+  top:14%;
+  width:min(36vw, 520px);
+  opacity:.37;
+  transform:rotate(-15deg);
+}
+.hero-atmosphere__plane-d {
+  left:20%;
+  top:37%;
+  width:min(34vw, 500px);
+  opacity:.34;
+  transform:rotate(-11deg);
+}
+.hero-atmosphere__plane-e {
+  left:16%;
+  top:76%;
+  width:min(32vw, 470px);
+  opacity:.28;
+  transform:rotate(-5deg);
+}
+.hero-atmosphere__plane-f {
+  left:6%;
+  top:17%;
+  width:min(28vw, 390px);
+  height:130px;
+  opacity:.31;
+  filter:blur(23px) saturate(1.24);
+  transform:rotate(-18deg);
+}
+.hero-atmosphere__plane-g {
+  left:9%;
+  top:6%;
+  width:min(24vw, 350px);
+  height:115px;
+  opacity:.21;
+  filter:blur(25px) saturate(1.22);
+  transform:rotate(-20deg);
+}
+.hero-atmosphere__plane-h {
+  left:5%;
+  top:54%;
+  width:min(30vw, 430px);
+  height:135px;
+  opacity:.28;
+  filter:blur(23px) saturate(1.22);
+  transform:rotate(-7deg);
+}
+.hero-atmosphere__plane-i {
+  left:44%;
+  top:10%;
+  width:min(32vw, 470px);
+  height:125px;
+  opacity:.34;
+  filter:blur(22px) saturate(1.24);
+  transform:rotate(-10deg);
+}
+.hero-atmosphere__plane-j {
+  left:53%;
+  top:18%;
+  width:min(22vw, 330px);
+  height:110px;
+  opacity:.22;
+  filter:blur(24px) saturate(1.22);
+  transform:rotate(-13deg);
+}
+.hero-atmosphere__plane-k {
+  left:48%;
+  top:84%;
+  width:min(36vw, 520px);
+  height:130px;
+  opacity:.32;
+  filter:blur(23px) saturate(1.2);
+  transform:rotate(-5deg);
+}
+.hero-atmosphere__plane-l {
+  left:2%;
+  top:11%;
+  width:min(33vw, 470px);
+  height:105px;
+  opacity:.42;
+  filter:blur(18px) saturate(1.28);
+  transform:rotate(-14deg);
+}
+@media (min-width:1500px) {
+  .hero-atmosphere::before {
+    display:block;
+    left:auto;
+    right:-14%;
+    top:-20%;
+    width:clamp(620px, 48vw, 900px);
+    height:clamp(470px, 36vw, 700px);
+    border-radius:50%;
+    background:
+      linear-gradient(132deg, transparent 38%, rgba(2,4,16,.38) 48%, transparent 61%),
+      radial-gradient(ellipse at 38% 36%, rgba(240,248,255,.22) 0 4%, rgba(0,221,255,.13) 16%, transparent 44%),
+      radial-gradient(ellipse at 55% 44%, rgba(61,111,255,.24) 0 18%, rgba(136,51,255,.17) 42%, transparent 72%),
+      radial-gradient(ellipse at 32% 62%, rgba(0,221,255,.13) 0 19%, rgba(61,111,255,.08) 42%, transparent 72%),
+      radial-gradient(ellipse at 74% 68%, rgba(136,51,255,.14) 0 18%, transparent 66%),
+      conic-gradient(from 214deg at 50% 48%, transparent 0 12%, rgba(0,221,255,.06) 20%, rgba(61,111,255,.12) 34%, transparent 52%, rgba(136,51,255,.12) 68%, transparent 84% 100%);
+    -webkit-mask-image:
+      radial-gradient(ellipse at 50% 48%, #000 0 17%, rgba(0,0,0,.44) 41%, rgba(0,0,0,.12) 63%, rgba(0,0,0,.025) 78%, transparent 88%);
+    mask-image:
+      radial-gradient(ellipse at 50% 48%, #000 0 17%, rgba(0,0,0,.44) 41%, rgba(0,0,0,.12) 63%, rgba(0,0,0,.025) 78%, transparent 88%);
+    filter:blur(62px) saturate(1.25) contrast(1.01);
+    mix-blend-mode:screen;
+    opacity:.66;
+    transform:rotate(-16deg);
+  }
+  .hero-atmosphere::after {
+    display:block;
+    left:28%;
+    top:34%;
+    width:min(52vw, 760px);
+    height:clamp(150px, 12vw, 210px);
+    border:0;
+    border-radius:999px;
+    background:
+      linear-gradient(94deg, transparent 0, rgba(0,221,255,.08) 22%, rgba(61,111,255,.13) 48%, rgba(136,51,255,.08) 72%, transparent 100%),
+      radial-gradient(ellipse at 66% 45%, rgba(240,248,255,.09), transparent 52%);
+    box-shadow:
+      0 0 42px rgba(0,221,255,.06);
+    -webkit-mask-image:
+      linear-gradient(90deg, transparent 0, rgba(0,0,0,.62) 20%, #000 48%, rgba(0,0,0,.52) 72%, transparent 100%);
+    mask-image:
+      linear-gradient(90deg, transparent 0, rgba(0,0,0,.62) 20%, #000 48%, rgba(0,0,0,.52) 72%, transparent 100%);
+    filter:blur(22px) saturate(1.18) contrast(1.01);
+    mix-blend-mode:screen;
+    opacity:.36;
+    transform:rotate(-10deg);
+  }
+  .hero-atmosphere__veil {
+    position:absolute;
+    display:block;
+    left:40%;
+    top:16%;
+    width:clamp(360px, 30vw, 540px);
+    height:clamp(260px, 21vw, 380px);
+    border-radius:50%;
+    background:
+      radial-gradient(ellipse at 64% 43%, rgba(232,244,255,.16) 0 3%, rgba(0,221,255,.13) 12%, transparent 31%),
+      radial-gradient(ellipse at 45% 49%, rgba(0,221,255,.16) 0 17%, rgba(61,111,255,.12) 43%, transparent 73%),
+      radial-gradient(ellipse at 72% 62%, rgba(136,51,255,.16) 0 20%, transparent 62%),
+      radial-gradient(ellipse at 25% 72%, rgba(2,4,16,.26) 0 18%, transparent 46%),
+      conic-gradient(from 226deg at 52% 52%, transparent 0 17%, rgba(0,221,255,.08) 29%, rgba(61,111,255,.11) 42%, transparent 60%, rgba(136,51,255,.09) 77%, transparent 100%);
+    -webkit-mask-image:
+      radial-gradient(ellipse at 55% 52%, #000 0 14%, rgba(0,0,0,.54) 37%, rgba(0,0,0,.16) 65%, rgba(0,0,0,.03) 80%, transparent 92%);
+    mask-image:
+      radial-gradient(ellipse at 55% 52%, #000 0 14%, rgba(0,0,0,.54) 37%, rgba(0,0,0,.16) 65%, rgba(0,0,0,.03) 80%, transparent 92%);
+    filter:blur(38px) saturate(1.22);
+    mix-blend-mode:screen;
+    opacity:.46;
+    transform:rotate(-13deg) skewX(-7deg);
+  }
+  .hero-atmosphere__wake {
+    position:absolute;
+    display:block;
+    left:45%;
+    top:27%;
+    width:clamp(260px, 22vw, 400px);
+    height:clamp(110px, 9vw, 160px);
+    border-radius:999px;
+    background:
+      radial-gradient(circle at 28% 44%, rgba(232,244,255,.22) 0 1px, transparent 2px),
+      radial-gradient(circle at 46% 30%, rgba(0,221,255,.20) 0 1px, transparent 2px),
+      radial-gradient(circle at 62% 56%, rgba(132,172,255,.18) 0 1px, transparent 2px),
+      linear-gradient(94deg, transparent 0, rgba(0,221,255,.08) 24%, rgba(61,111,255,.10) 54%, rgba(136,51,255,.07) 78%, transparent 100%);
+    -webkit-mask-image:linear-gradient(90deg, transparent 0, rgba(0,0,0,.2) 14%, #000 45%, rgba(0,0,0,.22) 76%, transparent 100%);
+    mask-image:linear-gradient(90deg, transparent 0, rgba(0,0,0,.2) 14%, #000 45%, rgba(0,0,0,.22) 76%, transparent 100%);
+    filter:blur(13px) saturate(1.18);
+    mix-blend-mode:screen;
+    opacity:.28;
+    transform:rotate(-10deg);
+  }
 }
 .hero-content { max-width:580px; position:relative; z-index:2; }
 .hero-eyebrow {
@@ -426,19 +681,37 @@ body.touch-only-tools .lang-menu {
 }
 .hero-eyebrow::before { content:''; display:inline-block; width:28px; height:1px; background:var(--ion); }
 .hero-title {
-  font-family:var(--f-display); font-size:clamp(52px,8vw,106px); font-weight:800;
+  font-family:var(--f-display); font-size:clamp(52px,7.4vw,98px); font-weight:800;
   line-height:.92; color:var(--star); letter-spacing:-.025em;
   margin-bottom:26px;
   opacity:0; animation:fade-up .9s .55s forwards;
 }
 .hero-title em { font-style:normal; color:transparent; -webkit-text-stroke:1.5px var(--ion); }
+.hero-title .hero-title-italic { font-style:italic; font-weight:800; }
 .hero-sub {
   font-size:13px; color:var(--drift); line-height:2; max-width:400px; margin-bottom:36px;
   opacity:0; animation:fade-up .8s .7s forwards;
 }
+.hero-sub--wide { display:none; }
+@media (min-width:951px) and (max-width:1399px) {
+  .hero-sub--default { display:none; }
+  .hero-sub--wide {
+    display:block;
+    max-width:520px;
+    font-size:14px;
+  }
+}
+@media (min-width:1400px) {
+  .hero-sub--default { display:none; }
+  .hero-sub--wide {
+    display:block;
+    max-width:520px;
+    font-size:18px;
+  }
+}
 .hero-cta {
   display:inline-flex; align-items:center; gap:10px; font-family:var(--f-mono);
-  font-size:11px; color:var(--star); border:1px solid var(--rim);
+  font-size:11px; color:var(--star); border:1px solid rgba(232,244,255,.24);
   padding:13px 22px; border-radius:6px; cursor:pointer;
   transition:all .25s; text-decoration:none; letter-spacing:.1em; text-transform:uppercase;
   opacity:0; animation:fade-up .8s .85s forwards;
@@ -450,7 +723,6 @@ body.touch-only-tools .lang-menu {
   from { opacity:0; transform:translateY(18px); }
   to   { opacity:1; transform:translateY(0); }
 }
-
 /* Abstract orbital in hero */
 .hero-orb {
   position:absolute; right:6%; top:calc(50% - 30px); transform:translateY(-50%);
@@ -803,6 +1075,7 @@ body.touch-only-tools .lang-menu {
   overflow-x:hidden;
   overscroll-behavior-y:auto;
   overscroll-behavior-x:none;
+  -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   -ms-overflow-style:none;
 }
@@ -1287,7 +1560,7 @@ body.motion-lite .ai-guide-shell::before {
   overflow:hidden;
   padding:0;
   gap:0;
-  border:1px solid rgba(132,132,176,.32);
+  border:1px solid rgba(150,150,190,.38);
   border-radius:6px;
   background:transparent;
   transition:
@@ -1979,376 +2252,10 @@ body.using-touch .work-visual { cursor:none !important; }
   100% { background-size:100% 2px; opacity:.72; }
 }
 
-/* ── case reel overlay ── */
+/* ── work visuals ── */
 .work-visual { cursor:default; }
-.work-visual.reel-open { z-index:2003; }
-.case-reel-trigger {
-  position:absolute;
-  right:18px;
-  bottom:18px;
-  z-index:7;
-  min-width:136px;
-  min-height:44px;
-  border:1px solid rgba(61,111,255,.52);
-  border-radius:8px;
-  padding:8px 13px 8px 42px;
-  color:var(--star);
-  background:
-    linear-gradient(135deg, rgba(61,111,255,.24), rgba(255,255,255,.08)),
-    rgba(5,8,24,.72);
-  -webkit-backdrop-filter:blur(14px);
-  backdrop-filter:blur(14px);
-  box-shadow:0 12px 34px rgba(0,0,0,.46), 0 0 22px rgba(61,111,255,.2);
-  cursor:pointer;
-  overflow:hidden;
-  opacity:.88;
-  transform:translateY(4px);
-  transition:opacity .28s cubic-bezier(.25,1,.5,1), transform .28s cubic-bezier(.25,1,.5,1), border-color .28s, box-shadow .28s;
-}
-.case-reel-trigger::before {
-  content:'';
-  position:absolute;
-  inset:-1px;
-  background:linear-gradient(115deg, transparent 0 28%, rgba(255,255,255,.22) 42%, transparent 58% 100%);
-  transform:translateX(-120%);
-  animation:case-reel-trigger-sheen 4.8s ease-in-out infinite;
-}
-.case-reel-trigger::after {
-  content:'';
-  position:absolute;
-  inset:auto 12px 7px 42px;
-  height:1px;
-  background:linear-gradient(90deg, var(--ion), transparent);
-  transform-origin:left;
-  animation:case-reel-trigger-line 2.6s ease-in-out infinite;
-}
-.case-reel-trigger:hover,
-.case-reel-trigger:focus-visible,
-.work-visual:hover .case-reel-trigger {
-  opacity:1;
-  border-color:var(--ion);
-  transform:translateY(0);
-  box-shadow:0 16px 42px rgba(0,0,0,.54), 0 0 30px rgba(61,111,255,.34);
-}
-.case-reel-trigger:focus-visible {
-  outline:2px solid rgba(61,111,255,.75);
-  outline-offset:3px;
-}
-.case-reel-trigger:active { transform:translateY(1px) scale(.99); }
-.case-reel-orbit {
-  position:absolute;
-  left:12px;
-  top:50%;
-  width:24px;
-  height:24px;
-  transform:translateY(-50%);
-  border:1px solid rgba(61,111,255,.58);
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:var(--ion);
-  box-shadow:0 0 18px rgba(61,111,255,.28), inset 0 0 14px rgba(61,111,255,.13);
-}
-.case-reel-orbit::before,
-.case-reel-orbit::after {
-  content:'';
-  position:absolute;
-  inset:-5px;
-  border:1px solid rgba(61,111,255,.18);
-  border-radius:50%;
-  animation:case-reel-orbit 3.2s linear infinite;
-}
-.case-reel-orbit::after {
-  inset:-9px;
-  border-top-color:rgba(255,255,255,.45);
-  animation-duration:4.7s;
-  animation-direction:reverse;
-}
-.case-reel-orbit svg {
-  width:11px;
-  height:11px;
-  margin-left:1px;
-  position:relative;
-  z-index:1;
-}
-.case-reel-trigger-text {
-  position:relative;
-  z-index:1;
-  display:block;
-  font-family:var(--f-mono);
-  font-size:9px;
-  line-height:1.15;
-  letter-spacing:.11em;
-  text-transform:uppercase;
-  white-space:nowrap;
-}
-.case-reel-trigger-pulse {
-  position:absolute;
-  left:22px;
-  top:50%;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:var(--ion);
-  transform:translate(-50%, -50%);
-  box-shadow:0 0 16px var(--ion);
-  animation:case-reel-pulse 1.8s ease-out infinite;
-}
-.work-visual.reel-open .case-reel-trigger {
-  opacity:0;
-  pointer-events:none;
-  transform:translateY(10px) scale(.96);
-}
-.wv-overlay {
-  position:absolute;
-  inset:0;
-  display:block;
-  padding:0;
-  opacity:0;
-  pointer-events:none;
-  overflow:hidden;
-  color:var(--star);
-  background:
-    radial-gradient(circle at 16% 18%, rgba(61,111,255,.28), transparent 26%),
-    radial-gradient(circle at 82% 80%, rgba(0,221,255,.16), transparent 30%),
-    linear-gradient(135deg, rgba(3,5,17,.94), rgba(6,10,28,.88));
-  -webkit-backdrop-filter:blur(7px) saturate(1.12);
-  backdrop-filter:blur(7px) saturate(1.12);
-  transform:translateY(18px) scale(.985);
-  transition:opacity .34s cubic-bezier(.25,1,.5,1), transform .34s cubic-bezier(.25,1,.5,1);
-}
-.wv-overlay.show {
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0) scale(1);
-}
-.wv-overlay::before {
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(90deg, rgba(61,111,255,.08) 1px, transparent 1px) 0 0 / 38px 38px,
-    linear-gradient(0deg, rgba(255,255,255,.05) 1px, transparent 1px) 0 0 / 38px 38px;
-  mask-image:radial-gradient(circle at 50% 48%, #000 0 58%, transparent 82%);
-  opacity:.46;
-  animation:case-reel-grid 11s linear infinite;
-}
-.wv-overlay::after {
-  content:'';
-  position:absolute;
-  inset:-40% -12%;
-  background:linear-gradient(100deg, transparent 42%, rgba(61,111,255,.18) 48%, rgba(255,255,255,.12) 50%, transparent 58%);
-  transform:translateX(-42%);
-  animation:case-reel-scan 5.8s ease-in-out infinite;
-}
-.case-reel-shell {
-  position:relative;
-  z-index:1;
-  height:100%;
-  display:grid;
-  grid-template-rows:auto 1fr auto;
-  gap:16px;
-  padding:clamp(20px, 4.4vw, 34px);
-}
-.case-reel-top {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-}
-.case-reel-kicker {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:0;
-  color:var(--ion);
-  font-size:8px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  white-space:nowrap;
-  text-shadow:0 0 16px rgba(61,111,255,.48);
-}
-.case-reel-kicker::before {
-  content:'';
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--ion);
-  box-shadow:0 0 16px var(--ion);
-  animation:case-reel-kicker-dot 1.7s ease-out infinite;
-}
-.case-reel-close {
-  width:30px;
-  height:30px;
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:7px;
-  background:rgba(255,255,255,.05);
-  color:var(--fog);
-  cursor:pointer;
-  display:grid;
-  place-items:center;
-  transition:all .2s;
-}
-.case-reel-close:hover,
-.case-reel-close:focus-visible {
-  color:var(--star);
-  border-color:rgba(61,111,255,.7);
-  background:rgba(61,111,255,.16);
-  outline:none;
-}
-.case-reel-close svg { width:14px; height:14px; }
-.case-reel-stage {
-  min-height:0;
-  display:grid;
-  align-content:center;
-  gap:16px;
-}
-.case-reel-scene-head {
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:18px;
-}
-.case-reel-scene-label {
-  color:var(--ion);
-  font-size:9px;
-  letter-spacing:.18em;
-  line-height:1.45;
-  text-transform:uppercase;
-}
-.case-reel-count {
-  color:rgba(238,238,255,.38);
-  font-family:var(--f-display);
-  font-size:clamp(38px, 7vw, 74px);
-  line-height:.8;
-  font-weight:800;
-  font-variant-numeric:tabular-nums;
-}
-.case-reel-text {
-  min-height:clamp(120px, 25vw, 190px);
-  max-height:210px;
-  overflow-y:auto;
-  padding-right:6px;
-  color:var(--star);
-  font-size:clamp(12px, 1.42vw, 16px);
-  line-height:1.62;
-  text-wrap:pretty;
-  text-shadow:0 0 24px rgba(61,111,255,.14);
-}
-.case-reel-text::-webkit-scrollbar { width:4px; }
-.case-reel-text::-webkit-scrollbar-track { background:rgba(255,255,255,.04); border-radius:2px; }
-.case-reel-text::-webkit-scrollbar-thumb {
-  background:linear-gradient(180deg, var(--ion), rgba(0,221,255,.62));
-  border-radius:2px;
-}
-.case-reel-text::after {
-  content:'';
-  display:inline-block;
-  width:7px;
-  height:1em;
-  margin-left:4px;
-  vertical-align:-.12em;
-  background:var(--ion);
-  box-shadow:0 0 12px var(--ion);
-  animation:case-reel-caret .88s steps(2, end) infinite;
-}
-.case-reel-strip {
-  display:flex;
-  gap:10px;
-  overflow:hidden;
-  color:rgba(172,172,204,.26);
-  font-size:8px;
-  letter-spacing:.16em;
-  line-height:1;
-  text-transform:uppercase;
-  white-space:nowrap;
-  mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-}
-.case-reel-strip span {
-  flex:0 0 auto;
-  animation:case-reel-marquee 18s linear infinite;
-}
-.case-reel-nav {
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:8px;
-}
-.case-reel-step {
-  position:relative;
-  min-width:0;
-  min-height:42px;
-  padding:9px 9px 10px;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:7px;
-  overflow:hidden;
-  color:var(--fog);
-  background:rgba(255,255,255,.035);
-  cursor:pointer;
-  font-family:var(--f-mono);
-  font-size:8px;
-  line-height:1.28;
-  letter-spacing:.09em;
-  text-align:left;
-  text-transform:uppercase;
-  transition:color .22s, border-color .22s, background .22s;
-}
-.case-reel-step::before {
-  content:'';
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:2px;
-  background:rgba(61,111,255,.18);
-}
-.case-reel-step::after {
-  content:'';
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:100%;
-  height:2px;
-  background:linear-gradient(90deg, var(--ion), rgba(0,221,255,.72));
-  transform:scaleX(0);
-  transform-origin:left;
-}
-.case-reel-step.is-active {
-  color:var(--star);
-  border-color:rgba(61,111,255,.56);
-  background:rgba(61,111,255,.12);
-}
-.case-reel-step.is-active::after {
-  animation:case-reel-fill var(--scene-ms, 5600ms) linear forwards;
-}
-.case-reel-step:focus-visible {
-  outline:2px solid rgba(61,111,255,.7);
-  outline-offset:2px;
-}
-.ov-label,
-.ov-text { display:none; }
 
-@keyframes case-reel-trigger-sheen {
-  0%, 64% { transform:translateX(-120%); }
-  100% { transform:translateX(120%); }
-}
-@keyframes case-reel-trigger-line {
-  0%, 100% { transform:scaleX(.25); opacity:.55; }
-  52% { transform:scaleX(1); opacity:1; }
-}
-@keyframes case-reel-orbit {
-  to { transform:rotate(360deg); }
-}
-@keyframes case-reel-pulse {
-  0% { opacity:1; transform:translate(-50%, -50%) scale(.72); }
-  100% { opacity:0; transform:translate(-50%, -50%) scale(3.2); }
-}
-@keyframes case-reel-kicker-dot {
-  0%, 100% { opacity:.55; transform:scale(.78); }
-  50% { opacity:1; transform:scale(1.18); }
-}
-@keyframes case-reel-grid {
-  to { background-position:38px 38px, 38px 38px; }
-}
+/* ── shared narrator case reel motion ── */
 @keyframes case-reel-scan {
   0%, 56% { transform:translateX(-54%); opacity:0; }
   72% { opacity:1; }
@@ -2674,7 +2581,7 @@ html.story-modal-open {
   padding-bottom:clamp(24px, 4vw, 48px);
   will-change:transform;
 }
-.story-feed-scene.is-text-only + .story-feed-scene.is-text-only {
+.story-feed-scene + .story-feed-scene {
   margin-top:calc(var(--story-text-feed-gap) - var(--story-feed-gap));
 }
 .story-feed-scene {
@@ -3181,6 +3088,176 @@ html.story-modal-open {
   text-wrap:pretty;
   text-shadow:0 0 24px rgba(61,111,255,.12);
 }
+.story-copy-pill {
+  display:inline-flex;
+  align-items:center;
+  height:1.45em;
+  margin:0 .42em .12em 0;
+  padding:0 .5em;
+  border:1px solid rgba(61,111,255,.54);
+  border-radius:3px;
+  color:var(--ion);
+  background:rgba(61,111,255,.10);
+  font-family:var(--f-mono);
+  font-size:.58em;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-shadow:0 0 12px rgba(61,111,255,.32);
+  vertical-align:.16em;
+  white-space:nowrap;
+}
+.story-copy-pill.is-arriving {
+  opacity:0;
+  transform:translateY(6px) scale(.96);
+  animation:story-media-in .42s cubic-bezier(.16,1,.3,1) forwards;
+}
+.story-copy-pill.is-insight {
+  border-color:rgba(0,221,255,.50);
+  color:#74eaff;
+  background:rgba(0,221,255,.08);
+  text-shadow:0 0 12px rgba(0,221,255,.28);
+}
+.story-copy-pill.is-problem {
+  border-color:rgba(255,184,77,.58);
+  color:#ffbf66;
+  background:rgba(255,184,77,.09);
+  text-shadow:0 0 12px rgba(255,184,77,.26);
+}
+.story-copy-pill.is-solution {
+  border-color:rgba(124,255,199,.46);
+  color:#9dffd4;
+  background:rgba(124,255,199,.07);
+  text-shadow:0 0 12px rgba(124,255,199,.22);
+}
+.story-copy-pill.is-hypothesis {
+  border-color:rgba(178,140,255,.50);
+  color:#cdb7ff;
+  background:rgba(178,140,255,.08);
+  text-shadow:0 0 12px rgba(178,140,255,.24);
+}
+.story-copy-mark {
+  display:inline;
+  padding:.04em .18em .08em;
+  border-radius:3px;
+  font-style:italic;
+  color:var(--star);
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+.story-copy-mark.is-insight {
+  color:#9eeeff;
+  background:rgba(0,221,255,.11);
+}
+.story-copy-mark.is-problem {
+  color:#ffd08a;
+  background:rgba(255,184,77,.13);
+}
+.story-copy-mark.is-solution {
+  color:#b7ffdf;
+  background:rgba(124,255,199,.10);
+}
+.story-copy-mark.is-hypothesis {
+  color:#dacbff;
+  background:rgba(178,140,255,.11);
+}
+.story-copy-list {
+  display:grid;
+  gap:.36em;
+  margin:.56em 0 .82em;
+  padding:.62em .72em .68em .86em;
+  list-style:none;
+  border-left:1px solid rgba(0,221,255,.36);
+  border-radius:0 5px 5px 0;
+  background:
+    linear-gradient(90deg, rgba(0,221,255,.075), rgba(61,111,255,.035) 58%, transparent),
+    rgba(8,20,40,.18);
+  box-shadow:inset 1px 0 0 rgba(132,172,255,.14);
+}
+.story-copy-list li {
+  position:relative;
+  padding-left:1.08em;
+  color:rgba(220,232,255,.9);
+  line-height:1.48;
+}
+.story-copy-list li::before {
+  content:'';
+  position:absolute;
+  left:.08em;
+  top:.66em;
+  width:.38em;
+  height:.38em;
+  border:1px solid rgba(0,221,255,.76);
+  border-radius:50%;
+  background:rgba(0,221,255,.14);
+  box-shadow:0 0 10px rgba(0,221,255,.32), inset 0 0 4px rgba(132,172,255,.28);
+}
+.story-copy-list.is-problem {
+  border-left-color:rgba(255,184,77,.44);
+  background:
+    linear-gradient(90deg, rgba(255,184,77,.085), rgba(255,68,34,.035) 58%, transparent),
+    rgba(28,18,12,.18);
+  box-shadow:inset 1px 0 0 rgba(255,208,138,.13);
+}
+.story-copy-list.is-problem li {
+  color:rgba(255,232,199,.9);
+}
+.story-copy-list.is-problem li::before {
+  border-color:rgba(255,184,77,.78);
+  background:rgba(255,184,77,.14);
+  box-shadow:0 0 10px rgba(255,184,77,.32), inset 0 0 4px rgba(255,208,138,.24);
+}
+.story-copy-flow {
+  display:block;
+  margin:.2em 0 1.05em;
+  padding:.16em 0 .08em .78em;
+  border-left:1px solid rgba(0,221,255,.28);
+}
+.story-copy-flow.is-arriving {
+  opacity:0;
+  transform:translateY(6px);
+  animation:story-media-in .48s cubic-bezier(.16,1,.3,1) forwards;
+}
+.story-copy-flow-title {
+  display:block;
+  color:rgba(174,194,232,.66);
+  font-size:.84em;
+  line-height:1.35;
+}
+.story-copy-flow-steps {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.24em .34em;
+  margin-top:.38em;
+}
+.story-copy-flow-step {
+  display:inline-flex;
+  align-items:center;
+  gap:.36em;
+  color:rgba(207,226,255,.84);
+  line-height:1.25;
+}
+.story-copy-flow-step::before {
+  content:'';
+  width:.34em;
+  height:.34em;
+  border-radius:50%;
+  background:rgba(0,221,255,.66);
+  box-shadow:0 0 8px rgba(0,221,255,.22);
+  flex:0 0 auto;
+}
+.story-copy-flow-arrow {
+  display:inline-block;
+  width:1.2em;
+  height:1px;
+  margin:0 .02em;
+  overflow:hidden;
+  color:transparent;
+  background:linear-gradient(90deg, rgba(0,221,255,.18), rgba(132,172,255,.34));
+  line-height:0;
+}
 .story-copy-body {
   min-height:0;
 }
@@ -3203,6 +3280,7 @@ html.story-modal-open {
   justify-content:start;
   max-width:100%;
   margin-top:18px;
+  margin-bottom:clamp(10px, 1.4vw, 16px);
   opacity:0;
   transform:translateY(8px);
   overflow:hidden;
@@ -3210,6 +3288,7 @@ html.story-modal-open {
 .story-inline-media:empty {
   display:none;
   margin-top:0;
+  margin-bottom:0;
 }
 .story-inline-media.is-masonry {
   align-items:start;
@@ -3457,6 +3536,45 @@ html.story-modal-open {
   box-shadow:0 8px 28px rgba(61,111,255,.25);
   filter:blur(0.3px) brightness(1.08);
   transform:perspective(800px) rotateX(2deg) rotateY(-3deg) scale(1.02);
+}
+.expandable-media-container.is-anti-pattern {
+  border-color:rgba(255,184,77,.72);
+  color:#ffbf66;
+  background:
+    linear-gradient(135deg, rgba(255,184,77,.16), rgba(255,68,34,.08)),
+    linear-gradient(90deg, transparent, rgba(255,184,77,.10), transparent);
+  box-shadow:inset 0 0 0 1px rgba(255,184,77,.08), 0 0 18px rgba(255,184,77,.07);
+}
+.expandable-media-container.is-anti-pattern:hover {
+  border-color:#ffd08a;
+  background:
+    linear-gradient(135deg, rgba(255,184,77,.22), rgba(255,68,34,.11)),
+    linear-gradient(90deg, transparent, rgba(255,184,77,.16), transparent);
+  box-shadow:0 8px 28px rgba(255,184,77,.16);
+  filter:brightness(1.06) saturate(1.04);
+}
+.story-inline-media .story-media-item:hover .expandable-media-container.is-anti-pattern,
+.story-inline-media .story-media-item:focus-visible .expandable-media-container.is-anti-pattern {
+  border-color:rgba(255,208,138,.9);
+  background:
+    linear-gradient(135deg, rgba(255,184,77,.22), rgba(255,68,34,.11)),
+    linear-gradient(90deg, transparent, rgba(255,184,77,.16), transparent);
+  box-shadow:0 16px 38px rgba(0,0,0,.36), 0 0 22px rgba(255,184,77,.18), inset 0 0 0 1px rgba(255,208,138,.08);
+}
+.expandable-media-container.is-anti-pattern .emc-icon,
+.expandable-media-container.is-anti-pattern .expandable-label {
+  color:#ffbf66;
+}
+.expandable-media-container.is-anti-pattern .emc-icon {
+  opacity:1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffbf66' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:16px 16px;
+  filter:drop-shadow(0 0 7px rgba(255,184,77,.32));
+}
+.expandable-media-container.is-anti-pattern .emc-icon path {
+  display:none;
 }
 .expandable-media-container .emc-icon {
   flex-shrink:0;
@@ -5333,6 +5451,11 @@ html.story-modal-open {
     z-index:1;
     animation:orb-float-mobile 9s ease-in-out infinite;
   }
+  .hero::before,
+  .hero::after,
+  .hero-atmosphere {
+    display:none;
+  }
   .narrator {
     padding:0;
   }
@@ -5776,53 +5899,7 @@ html.story-modal-open {
   .tip-actions .tip-skip { margin:0; }
 }
 
-/* max-width: 400px — compact work overlays */
 @media (max-width:399.98px) {
-  .wv-overlay {
-    padding:0;
-    overflow-y:auto;
-  }
-  .case-reel-trigger {
-    right:12px;
-    bottom:12px;
-    min-width:126px;
-    min-height:40px;
-    padding:8px 11px 8px 38px;
-  }
-  .case-reel-trigger-text {
-    font-size:8px;
-    letter-spacing:.09em;
-  }
-  .case-reel-orbit {
-    left:10px;
-    width:22px;
-    height:22px;
-  }
-  .case-reel-shell {
-    gap:11px;
-    padding:16px;
-  }
-  .case-reel-scene-head {
-    gap:10px;
-  }
-  .case-reel-count {
-    font-size:34px;
-  }
-  .case-reel-text {
-    min-height:108px;
-    max-height:154px;
-    font-size:10.5px;
-    line-height:1.5;
-  }
-  .case-reel-nav {
-    gap:6px;
-  }
-  .case-reel-step {
-    min-height:38px;
-    padding:8px 7px 9px;
-    font-size:6.8px;
-    letter-spacing:.05em;
-  }
   .story-shell {
     padding:12px;
     gap:10px;
@@ -5868,17 +5945,6 @@ html.story-modal-open {
   .story-nav-btn {
     width:38px;
     height:36px;
-  }
-  .ov-label {
-    font-size:7px;
-    line-height:1.35;
-    margin-bottom:8px;
-    gap:8px;
-    letter-spacing:.16em;
-  }
-  .ov-text {
-    font-size:10.5px;
-    line-height:1.5;
   }
 }
 
@@ -5926,35 +5992,6 @@ html.story-modal-open {
   }
   .tip-next {
     padding: 7px 11px;
-  }
-  .wv-overlay {
-    padding:0;
-  }
-  .case-reel-shell {
-    padding:13px;
-  }
-  .case-reel-top {
-    gap:10px;
-  }
-  .case-reel-kicker,
-  .case-reel-scene-label {
-    font-size:7px;
-    letter-spacing:.13em;
-  }
-  .case-reel-text {
-    min-height:96px;
-    max-height:138px;
-    font-size:10px;
-    line-height:1.45;
-  }
-  .case-reel-step {
-    min-height:34px;
-    padding:7px 5px 8px;
-    font-size:6px;
-  }
-  .ov-text {
-    font-size:10px;
-    line-height:1.45;
   }
 }
 
@@ -6392,16 +6429,37 @@ html.story-modal-open {
   <section class="hero">
     <div class="hero-content">
       <div class="hero-eyebrow">Портфоліо</div>
-      <h1 class="hero-title">Гармонія<br><em>рухає</em><br>світи</h1>
-      <p class="hero-sub">
+      <h1 class="hero-title">Гармонія<br><em>рухає</em><br><span class="hero-title-italic">світи</span></h1>
+      <p class="hero-sub hero-sub--default">
         Олександр. Full Stack Designer,<br>
         Digital Artist&nbsp;–<br>
-        Motion, Brand, UX/UI
+        UX/UI, Product, Motion, Brand 
+      </p>
+      <p class="hero-sub hero-sub--wide">
+        Олександр. Full Stack Designer, Digital Artist&nbsp;–<br>
+        UX/UI, Product, Motion, Brand
       </p>
       <a href="#footer" class="hero-cta">
         Контакти
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
       </a>
+    </div>
+
+    <div class="hero-atmosphere" aria-hidden="true">
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-a"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-b"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-c"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-d"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-e"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-f"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-g"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-h"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-i"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-j"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-k"></span>
+      <span class="hero-atmosphere__plane hero-atmosphere__plane-l"></span>
+      <span class="hero-atmosphere__veil"></span>
+      <span class="hero-atmosphere__wake"></span>
     </div>
 
     <!-- Abstract orbital -->
@@ -6541,20 +6599,16 @@ html.story-modal-open {
     <div class="works-list" id="worksList">
       <!-- ◈ WORK START ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
       <article class="work" data-case-id="atlant-ai"
-        data-narrator="Робота передбачала створення 5 екранів. Однією з вимог бізнесу був широкоформатний сайт. Тому адаптивний лейаут вийшов трохи масштабнішим від 3 традиційних екранів. Відео: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./atlantAI/AtlantAiAdaptiveLayout.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Усі екрани повністю адаптивні. Їх можна розтягувати і стискати від 4К до 350px. Так у замовників та верстальників є вичерпне уявлення про вигляд і функціонал кінцевого продукту. ||| <div style='height:12px;'></div> ||| Основний юзер-флоу з мікро-анімаціями відтворено на цьому відео: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./atlantAI/AtlantBaseUserJourney.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Демонстрація роботи деяких складних елементів інтерфейсу потребувала окремих прототипів. Тут можна побачити, як працюють кнопки в картках (до речі, іконки на картках зроблені через трансфер стилю в ComfyUI IP Adapter): ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./atlantAI/AtlantDetailsJourney.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| А тут показано роботу бургер-меню, що з'являється на менших екранах: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./atlantAI/AtlantAiBurgerMenu.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Насамкінець - запис переходів по кнопках на лендингу: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='atlantAI/AtlantButtonsJumpsJourney.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| У результаті вийшов повністю готовий до реалізації в коді макет."
-        data-intent="Відмалювати сторінку продукту в стилі космічного футуризму. Естетика має передавати AI-вектор компанії. Лендинг повинен вести користувача до заповнення форми."
+        data-narrator="{{Flow|Схема моєї активності в межах цього кейсу::Аналіз - пропозиція - дизайн - адаптив}} Спочатку до мене звернулися із завданням {{Problem|оцінити доцільність дизайну секції сайту, яку малював інший дизайнер:}} ||| <div class='expandable-media-container is-anti-pattern'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./atlantAI/firstWrong.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| [[Analysis]] Переглянувши роботу, я зрозумів, що проблемною точкою було {{Analysis|розпорошення інформації на кілька сторінок. 6 однакових кнопок на картках}} у 2 ряди, що {{Analysis|ведуть на одну й ту ж сторінку.}} Плюс велика, незбалансована {{Analysis|кнопка, що знову веде на іншу сторінку з картками.}} [[Solution]]Мені було очевидним, що це {{Solution|треба зробити компактніше.}} Основний CTA мав знаходитися на основній сторінці. Не треба перенаправляти користувача на додаткові сторінки з картками, якщо {{Solution|ті ж картки можна розмістити на основній сторінці.}} ||| <div style='height:12px;'></div> ||| Я відмалював вайрфрейм того, як бачу покращення: ||| <img src='./atlantAI/wireframe.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| За ним створив редизайн секції, зберігаючи стиль: ||| <img src='./atlantAI/redesign.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Ніяких множинних сторінок та зайвих кнопок. 1 компактна секція, прикметні іконки, легка, зрозуміла навігація. ||| <div style='height:12px;'></div> ||| [[Result]] {{Result|Замовник оцінив результат і доручив спроєктувати всю веб-сторінку для AI-стартапу.}} Робота передбачала створення 5 екранів. Однією з вимог бізнесу був широкоформатний сайт. Тому адаптивний лейаут вийшов трохи масштабнішим від 3 традиційних екранів. Відео: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./atlantAI/AtlantAiAdaptiveLayout.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Усі екрани повністю адаптивні. Їх можна розтягувати і стискати від 4К до 350px. Так у замовників та верстальників є вичерпне уявлення про вигляд і функціонал кінцевого продукту. ||| <div style='height:12px;'></div> ||| Основний юзер-флоу з мікро-анімаціями відтворено на цьому відео: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./atlantAI/AtlantBaseUserJourney.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Демонстрація роботи деяких складних елементів інтерфейсу потребувала окремих прототипів. Тут можна побачити, як працюють кнопки в картках (до речі, іконки на картках зроблені через трансфер стилю в ComfyUI IP Adapter): ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./atlantAI/AtlantDetailsJourney.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| А тут показано роботу бургер-меню, що з'являється на менших екранах: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./atlantAI/AtlantAiBurgerMenu.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Насамкінець - запис переходів по кнопках на лендингу: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='atlantAI/AtlantButtonsJumpsJourney.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| У результаті вийшов повністю готовий до реалізації в коді макет."
+        data-intent="Проаналізувати наявні матеріали та відмалювати сторінку продукту в стилі космічного футуризму. Лендинг повинен вести користувача до заповнення форми."
         data-structure="Односторінковий макет на 6 секцій із бібліотекою елементів та стилів."
-        data-aim="Замовник прийняв макет без правок. Особливо сподобалися демонстрації роботи сервісу. Сайт уже в розробці.">
+        data-aim="Замовнику сподобався product-аналіз. Мені доручили зробити макет всієї сторінки. Роботу прийнято без правок. Особливо оцінили відео-демонстрації, які спростили handoff to development.">
         <div class="work-visual" style="--c1:#0d0820;--c2:#200e40">
           <div class="wv-inner">
             <div class="wv-bg" style="background:linear-gradient(145deg,var(--c1),var(--c2))"></div>
             <div class="wv-media">
               <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/atlant.webm" style="width:auto; height:130%; transform: translateY(8%);"></video>
             </div>
-          </div>
-          <div class="wv-overlay" id="ov4">
-            <div class="ov-label" id="ovl4">Проблема (мета)</div>
-            <div class="ov-text"  id="ovt4"></div>
           </div>
         </div>
         <div class="work-meta">
@@ -6563,7 +6617,7 @@ html.story-modal-open {
           <h2 class="w-title">Веб-сторінка <br>Atlant AI</h2>
           <div class="w-tags">
             <span class="w-tag">UX/UI-дизайн</span>
-            <span class="w-tag">Motion-дизайн</span>
+            <span class="w-tag">Product-дизайн</span>
             <span class="w-tag">2026</span>
           </div>
           <p class="w-desc"><span class="keyword-highlight">Сайт</span> для стартапу. Команда Atlant AI забезпечує рішення для автоматизації процесів на підприємствах за допомогою штучного інтелекту. Робота виконана у <span class="keyword-highlight">Figma</span>. Повноцінний <span class="keyword-highlight">autolayout</span> на <span class="keyword-highlight">компонентах</span> з усіма можливими станами. Базові <span class="keyword-highlight">мікро-анімації</span>. Застосування <span class="keyword-highlight">AI (SDXL)</span>.</p>
@@ -6571,43 +6625,41 @@ html.story-modal-open {
       </article>
       <!-- ◈ WORK END ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
 
-      <!-- ◈ WORK START ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
-      <article class="work" data-case-id="sa-merch"
-        data-narrator="Цей проєкт — про емоції. Лише гляньте на худі: ||| <img src='./saMerch/hoodie.jpg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <video autoplay muted playsinline loop src='./saMerch/meInHoodie.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video> ||| Це — спосіб сказати світу: «Ми — команда, де цінують якість і креатив». ||| Кожен елемент дизайну був ретельно продуманий, щоб відобразити унікальність бренду та створити щось більше, ніж просто мерч. Не переконав? Ловіть шопер: ||| <video autoplay muted playsinline loop src='./saMerch/shopper.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video> ||| Із такою сумкою весь магазин - ваш. Складно пропустити. А ось такі бокси - для співробітників на свята: ||| <img src='./saMerch/vine.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Таке не соромно дарувати клієнтам. І дарують! ||| <video autoplay muted playsinline loop src='./saMerch/box.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video> ||| Нещодавно із цією клієнткою ми розробили cправжні фірмові кросівки! ||| <video autoplay muted playsinline loop src='./saMerch/sneakers.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video>"
-        data-intent="Напрацювати лінійку мерчу, яким справді захочеться користуватися. Не нудний одяг з лого. А те, що приверне увагу та змотивує."
-        data-structure="Макети в Adobe Illustrator та Photoshop з технічними шарами. З урахуванням усіх нюансів (PPI, виступи, растризування градієнтів тощо)."
-        data-aim="Речі вийшли настільки вдало, що співробітники почали замовляти їх на день народження замість подарунків. Підписники часто питають, чи буде розпродаж.">
-        <div class="work-visual" style="--c1:#0a0a12;--c2:#181430">
+
+      
+                  <!-- ◈ WORK START ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
+      <article class="work" data-case-id="alumni-mip-crm"
+        data-narrator="{{Flow|Схема моєї активності в межах цього кейсу::Припущення - тестування - прототипування - стайлгайд - дизайн}} Коли даних багато, вони розпорошуються. Виникає потреба в системі, яка їх об'єднає та наочно репрезентує в такий спосіб, щоб було зручно ухвалювати на їх основі рішення. ||| <div style='height:12px;'></div> ||| У класичному розумінні CRM - це система для роботи з клієнтами. У нашому випадку клієнт - це випускник. І основа всієї системи - це профіль. ||| <div style='height:12px;'></div> ||| [[Hypothesis]]На початку роботи в мене було 2 гіпотези щодо того, {{Hypothesis|як краще представити профіль випускника: рядок списку чи картка. Вирішив протестувати їх.}} Дав Figma Make промпт для верхнерівневих макетів. Вийшло 2 прототипи: ||| <img src='crm/rows.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='crm/cards.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Тестування провів безпосередньо на засіданні асоціації випускників. Рядки нагадували табличку ексель, від якої працівники хотіли відійти. Так, {{Hypothesis|рядок подає інформацію більш компактно, але цей проєкт був про інше. Про наочність,}} про візуальну привабливість. Картка тут очевидно вигравала. ||| <div style='height:12px;'></div> |||  Я зробив вайрфрейм. Все виглядало логічно і зручно: ||| <img src='crm/wireframe.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Картка людини містить: {{List|базову інформацію; спеціальність; освітню програму; місце роботи; належність до Групи або асоціації}} Передбачена можливість пошуку та фільтрації. Замість розрізнених файлів отримуємо єдину точку доступу до кожного випускника. ||| <div style='height:12px;'></div> ||| Можна було братися за візуальний гайд бренду. У Метінвесту основний колір - це Molten Steel Red. Ресурс не задумувався як щось дуже складне. Тому накидав базову Brand-колекцію без кількарівневої токенізації: {{List|1 брендова палетка; 5 семантичних кольорових шкал; кілька кнопок}} ||| <img src='crm/visualGuide.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| На основі вайфрейму та бренд-гайду створив дизайн сайту для презентації замовникам: |||  <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./crm/crmPrototype.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Ідея сподобалася. [[Result]] {{Result|Одразу після презентації менеджер проєкту сказав, що ресурсом зацівлені, запланували значне розширення.}}"
+        data-intent="Побудувати UX та інтерфейс для системи, яка б дозволяла відстежувати траєкторію розвитку випускників. Візуальні вимоги: повна відповідність брендбуку компанії."
+        data-structure="Адаптивний прототип у Figma."
+        data-aim="23.04.2026 відбулася перша презентація сервісу для замовників. Проєкт буде значно розширюватися. Сказали, що ця ідея може бути дуже корисною.">
+        <div class="work-visual" style="--c1:#081428;--c2:#102840">
           <div class="wv-inner">
             <div class="wv-bg" style="background:linear-gradient(145deg,var(--c1),var(--c2))"></div>
             <div class="wv-media">
-              <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/sneakers.mp4" style="width:75%; height:auto; transform: rotate(90deg); transform-origin: center center;"></video>
+              <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/alumniCRMnew.mp4" alt="crm" style="height: 100%; width: auto;"></video>
             </div>
-          </div>
-          <div class="wv-overlay" id="ov5">
-            <div class="ov-label" id="ovl5">Проблема (мета)</div>
-            <div class="ov-text"  id="ovt5"></div>
           </div>
         </div>
         <div class="work-meta">
-          <div class="w-company">SA Consulting</div>
+          <div class="w-company">Група Метінвест</div>
           <div class="w-idx">02 · 09</div>
-          <h2 class="w-title">Мерч для студії</h2>
+          <h2 class="w-title">CRM AlumniMiP</h2>
           <div class="w-tags">
-            <span class="w-tag">Бренд-дизайн</span>
-            <span class="w-tag">Графічний дизайн</span>
-            <span class="w-tag">2025-2026</span>
+            <span class="w-tag">UX/UI-дизайн</span>
+            <span class="w-tag">Product-дизайн</span>
+            <span class="w-tag">2026</span>
           </div>
-          <p class="w-desc">Набір справді унікальної (відкрийте кейс — ви в цьому переконаєтеся) брендованої продукції. Складні <span class="keyword-highlight">макети</span>&nbsp;: <span class="keyword-highlight">лінії різу</span>&nbsp;, <span class="keyword-highlight">лінії згину</span>&nbsp;. <span class="keyword-highlight">Prepress</span>&nbsp;, <span class="keyword-highlight">менеджмент друку</span> (зокрема, робота з підрядниками).</p>
+          <p class="w-desc">Дизайн <span class="keyword-highlight">дашборда</span> із секціями фільтрів і карток. Сервіс покликаний консолідувати інформацію про випускників корпоративного університету для підвищення ефективності менеджменту талантів. Під час створення використовувався <span class="keyword-highlight">AI Figma Make</span> для <span class="keyword-highlight">A/B тестування</span>.</p>
         </div>
       </article>
       <!-- ◈ WORK END ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
 
 
-
+      
       <!-- ◈ WORK START ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
       <article class="work" data-case-id="metinvest-mascot-system"
-        data-narrator="Усе починалося із дизайну HTML/CSS/JSON-секцій на flexbox для внутрішнього сайту (SharePoint), які я сам відмальовував у Figma та реалізував у коді. ||| <img src='metinvestCats/Values1.svg' style='width:180px; height:auto; display:block; margin:10px 0;'> ||| <img src='metinvestCats/Values2.svg' style='width:180px; height:auto; display:block; margin:10px 0;'> ||| <img src='metinvestCats/Values3.svg' style='width:180px; height:auto; display:block; margin:10px 0 30px;'> ||| <div style='width: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin:10px 0 30px;'><img src='metinvestCats/TileAnimated1.svg' style='width:170px; height:auto;'><img src='metinvestCats/catDiv1Bottom.svg' style='width:180px; height:auto; margin: -170px 0 0 0;'></div> ||| <img src='metinvestCats/tilesGroup1.svg' style='width:180px; height:auto; display:block; margin:10px 0;'> ||| <img src='metinvestCats/tilesGroup3.svg' style='width:180px; height:auto; display:block; margin:10px 0;'> ||| <img src='metinvestCats/tilesGroup4.svg' style='width:180px; height:auto; display:block; margin:10px 0 30px;'> ||| <div style='width: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin:10px 0;'><img src='metinvestCats/TileAnimated2.svg' style='width:170px; height:auto;'><img src='metinvestCats/catDiv2Bottom.svg' style='width:180px; height:auto; margin: -170px 0 0 0;'></div> ||| Надалі маскотик перекочував у поштові розсилки та внутрішні соцмережі. ||| <img src='metinvestCats/LitoMetapolis.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/LitoMetapolisMail.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 4px;'> ||| <img src='metinvestCats/Metapolis.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/MetapolisMail.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 4px;'> ||| <img src='metinvestCats/Anniversary.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/AnniversaryMail.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 4px;'> ||| <img src='metinvestCats/Sea.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/SeaMail.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 4px;'> ||| Опинився на грамотах і в корпоративних буклетах. ||| <img src='metinvestCats/Certificate.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/Flyer1.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/Flyer2.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Потім я додав до нього модифікатор стилю через ComfyUI SDXL (open-source інструмент штучного інтелекту). ||| <img src='metinvestCats/secretSantaViber.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/rizdvianeSviato.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| AI-хід дозволив зберегти знайомого персонажа та водночас тиражувати зображення «на льоту» через NanoBanana. Такі картинки можна легко анімувати через Wan. ||| <video autoplay muted playsinline loop src='metinvestCats/aiCatAnimated.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video> ||| У результаті, вийшла ціла дизайн-система з маскотом, яку можна адаптувати під різну швидкість (від пропрацьованих ілюстрацій до миттєвих AI-шотів) роботи та формати контенту."
+        data-narrator="{{Flow|Схема моєї активності в межах цього кейсу::Дизайн - систематизація - масштабування - автоматизація}} Для цієї компанії я вже раніше розробляв стайлгайд для Web-ресурсу (зазирніть у кейс CRM Alumni MiP). Ним я і користувався в роботі над UX/UI-елементами та key-visuals у цьому проєкті: ||| <img src='crm/visualGuide.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Усе починалося із дизайну HTML/CSS/JSON-секцій на flexbox для внутрішнього сайту (SharePoint), які я сам відмальовував у Figma та реалізував у коді. ||| <img src='metinvestCats/Values1.svg' style='width:180px; height:auto; display:block; margin:10px 0;'> ||| <img src='metinvestCats/Values2.svg' style='width:180px; height:auto; display:block; margin:10px 0;'> ||| <img src='metinvestCats/Values3.svg' style='width:180px; height:auto; display:block; margin:10px 0 30px;'> ||| <img src='metinvestCats/TileAnimated1.svg' style='width:170px; height:auto;'> ||| <img src='metinvestCats/tilesGroup1.svg' style='width:180px; height:auto; display:block; margin:10px 0;'> ||| <img src='metinvestCats/tilesGroup3.svg' style='width:180px; height:auto; display:block; margin:10px 0;'> ||| <img src='metinvestCats/tilesGroup4.svg' style='width:180px; height:auto; display:block; margin:10px 0 30px;'> ||| <img src='metinvestCats/TileAnimated2.svg' style='width:170px; height:auto;'> ||| Надалі маскотик перекочував у поштові розсилки та внутрішні соцмережі. ||| <img src='metinvestCats/LitoMetapolis.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/LitoMetapolisMail.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 4px;'> ||| <img src='metinvestCats/Metapolis.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/MetapolisMail.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 4px;'> ||| <img src='metinvestCats/Anniversary.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/AnniversaryMail.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 4px;'> ||| <img src='metinvestCats/Sea.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/SeaMail.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 4px;'> ||| Опинився на грамотах і в корпоративних буклетах. ||| <img src='metinvestCats/Certificate.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/Flyer1.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/Flyer2.svg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Потім я додав до нього модифікатор стилю через ComfyUI SDXL (open-source інструмент штучного інтелекту). ||| <img src='metinvestCats/secretSantaViber.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='metinvestCats/rizdvianeSviato.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| AI-хід дозволив зберегти знайомого персонажа та водночас тиражувати зображення «на льоту» через NanoBanana. Такі картинки можна легко анімувати через Wan. ||| <video autoplay muted playsinline loop src='metinvestCats/aiCatAnimated.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video> ||| У результаті, вийшла ціла дизайн-система з маскотом, яку можна адаптувати під різну швидкість (від пропрацьованих ілюстрацій до миттєвих AI-шотів) роботи та формати контенту."
         data-intent="Розробити дизайн-систему, яка зробить внутрішні комунікації дійсно цікавими, щоб їх справді читали. Візуали мають розбавляти, а не обтяжувати робочий процес."
         data-structure="Key-visuals: колаж із векторних зображень (деякі — анімовані в After Effects чи VS Code). UI-елементи: векторний маскот + кнопки, бокси, іконки, таблиці тощо."
         data-aim="За допомогою внутрішньої комунікаційної кампанії та старанням відділу HR 90%+ співробітників встановили корпоративний застосунок, який рекламувався через цього кота.">
@@ -6617,10 +6669,6 @@ html.story-modal-open {
             <div class="wv-media">
               <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/metinvestCat.mp4" style="width:auto; height:110%;"></video>
             </div>
-          </div>
-          <div class="wv-overlay" id="ov6">
-            <div class="ov-label" id="ovl6">Проблема (мета)</div>
-            <div class="ov-text"  id="ovt6"></div>
           </div>
         </div>
         <div class="work-meta">
@@ -6708,327 +6756,55 @@ html.story-modal-open {
               </div>
             </div>
           </div>
-          <script>
-          (function(){
-            const carousel = document.getElementById('instaCarousel');
-            if (!carousel) return;
-            const track = carousel.querySelector('.carousel-track');
-            const slides = Array.from(track.querySelectorAll('.carousel-slide'));
-            const countEl = carousel.querySelector('.carousel-count');
-            const prevBtn = carousel.querySelector('.carousel-btn.prev');
-            const nextBtn = carousel.querySelector('.carousel-btn.next');
-            let idx = 0;
-            let autoTimer = null;
-            let isPaused = false;
-            const AUTO_DELAY = 3200;
-            const formatCount = value => String(value).padStart(2, '0');
-            track.querySelectorAll('img').forEach(img => {
-              img.addEventListener('error', () => {
-                img.removeAttribute('src');
-                img.removeAttribute('alt');
-                img.hidden = true;
-              }, { once: true });
-            });
-            function updateCarousel() {
-              if (!slides.length) return;
-              const style = window.getComputedStyle(track);
-              const gap = parseFloat(style.columnGap || style.gap || '0') || 0;
-              track.style.transform = `translateX(${-idx * (slides[0].offsetWidth + gap)}px)`;
-              if (countEl) countEl.textContent = `${formatCount(idx + 1)} / ${formatCount(slides.length)}`;
-            }
-            function stopAuto() {
-              clearTimeout(autoTimer);
-              autoTimer = null;
-            }
-            function scheduleAuto() {
-              stopAuto();
-              if (isPaused || slides.length < 2) return;
-              autoTimer = setTimeout(() => {
-                goTo(idx + 1, { manual: false });
-              }, AUTO_DELAY);
-            }
-            function goTo(nextIndex, { manual = false } = {}) {
-              if (!slides.length) return;
-              idx = (nextIndex + slides.length) % slides.length;
-              updateCarousel();
-              if (manual) {
-                isPaused = false;
-              }
-              scheduleAuto();
-            }
-            nextBtn.addEventListener('click',()=> goTo(idx + 1, { manual: true }));
-            prevBtn.addEventListener('click',()=> goTo(idx - 1, { manual: true }));
-            let startX = null;
-            track.addEventListener('touchstart',e=>{ startX = e.touches[0].clientX; });
-            track.addEventListener('touchend',e=>{
-              if(startX===null) return;
-              const dx = e.changedTouches[0].clientX - startX;
-              if(Math.abs(dx)>40){
-                goTo(idx + (dx < 0 ? 1 : -1), { manual: true });
-              }
-              startX = null;
-            });
-            carousel.addEventListener('keydown',e=>{
-              if(e.key==='ArrowRight') goTo(idx + 1, { manual: true });
-              if(e.key==='ArrowLeft') goTo(idx - 1, { manual: true });
-            });
-            carousel.addEventListener('mouseenter', ()=> { isPaused = true; stopAuto(); });
-            carousel.addEventListener('mouseleave', ()=> { isPaused = false; scheduleAuto(); });
-            carousel.addEventListener('focusin', ()=> { isPaused = true; stopAuto(); });
-            carousel.addEventListener('focusout', ()=> { isPaused = false; scheduleAuto(); });
-            const productCTA = document.querySelector('.product-case-cta');
-            const productCaseLeft = document.querySelector('.product-case-left');
-            const productCaseRight = document.querySelector('.product-case-right');
-            const carouselTitle = document.querySelector('.carousel-title');
-            const productMobileLayout = window.matchMedia('(max-width: 950px)');
-            const syncProductCarouselPlacement = () => {
-              if (!productCTA || !productCaseLeft || !productCaseRight || !carouselTitle || !carousel) return;
-              if (productMobileLayout.matches) {
-                productCTA.after(carousel, carouselTitle);
-              } else {
-                productCaseRight.append(carouselTitle, carousel);
-              }
-              updateCarousel();
-            };
-            if (productCTA) {
-              productCTA.addEventListener('click', (event)=> {
-                event.preventDefault();
-                event.stopPropagation();
-                productCTA.classList.add('clicked');
-                setTimeout(()=> productCTA.classList.remove('clicked'), 430);
-                if (event.detail > 0 && document.activeElement === productCTA) productCTA.blur();
-                if (typeof trackEvent === 'function') trackEvent('product case cosmos story clicked');
-                if (typeof showProductCaseNarrator === 'function') showProductCaseNarrator();
-              });
-            }
-            const planetScene = document.getElementById('planetScene');
-            const planetFallback = document.getElementById('planetFallback');
-            const neptuneModel = document.getElementById('neptuneModel');
-            const productSection = document.querySelector('.product-case-section');
-            const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
-            let productSectionVisible = false;
-            let planetModelNearViewport = false;
-            let neptuneModelMounted = Boolean(neptuneModel?.parentElement);
-            let neptuneModelLoaded = false;
-            let neptuneModelError = false;
-            const neptuneModelParent = neptuneModel?.parentElement || null;
-            const neptuneModelSlot = document.createComment('neptune model slot');
-            const neptuneModelSrc = neptuneModel?.dataset.modelSrc || '';
-            const isPlanetMotionLite = () => document.body.classList.contains('motion-lite');
-            if (neptuneModelParent && neptuneModel) {
-              neptuneModelParent.insertBefore(neptuneModelSlot, neptuneModel);
-            }
-            const setNeptuneModelVisible = visible => {
-              if (!neptuneModel) return;
-              neptuneModel.style.opacity = visible ? '1' : '0';
-              neptuneModel.style.pointerEvents = visible ? '' : 'none';
-            };
-            const setPlanetFallbackVisible = visible => {
-              if (!planetFallback) return;
-              planetFallback.style.display = visible ? 'block' : 'none';
-            };
-            const syncPlanetFallback = () => {
-              const showFallback = isPlanetMotionLite() || !neptuneModelLoaded || neptuneModelError;
-              setPlanetFallbackVisible(showFallback);
-              setNeptuneModelVisible(!showFallback);
-            };
-            const unmountNeptuneModel = () => {
-              if (!neptuneModel) return;
-              neptuneModel.removeAttribute('auto-rotate');
-              neptuneModel.removeAttribute('src');
-              neptuneModelLoaded = false;
-              neptuneModelError = false;
-              setNeptuneModelVisible(false);
-              if (neptuneModel.parentElement) neptuneModel.remove();
-              neptuneModelMounted = false;
-              syncPlanetFallback();
-            };
-            const mountNeptuneModel = () => {
-              if (!neptuneModelParent || !neptuneModel || neptuneModelMounted) return;
-              neptuneModelParent.insertBefore(neptuneModel, neptuneModelSlot.nextSibling);
-              neptuneModelMounted = true;
-            };
-            const hydrateNeptuneModel = () => {
-              if (!neptuneModel || isPlanetMotionLite() || !planetModelNearViewport) return;
-              mountNeptuneModel();
-              if (!neptuneModel.getAttribute('src') && neptuneModelSrc) {
-                neptuneModel.setAttribute('src', neptuneModelSrc);
-              }
-              syncPlanetFallback();
-            };
-            if (isPlanetMotionLite()) {
-              unmountNeptuneModel();
-            } else {
-              syncPlanetFallback();
-            }
-            const setPlanetAutoRotate = enabled => {
-              if (!neptuneModel) return;
-              if (enabled && productSectionVisible && !isPlanetMotionLite()) {
-                neptuneModel.setAttribute('auto-rotate', '');
-              } else {
-                neptuneModel.removeAttribute('auto-rotate');
-              }
-            };
-            const updatePlanet = () => {
-              if (!planetScene || !productSection) return;
-              const narrow = window.matchMedia('(max-width: 950px)').matches;
-              if (isPlanetMotionLite()) {
-                setPlanetAutoRotate(false);
-                if (!narrow) {
-                  planetScene.style.setProperty('--planet-translate-x', '8%');
-                  planetScene.style.setProperty('--planet-translate-y', '0px');
-                  planetScene.style.setProperty('--planet-tilt', '-4deg');
-                  if (neptuneModel) neptuneModel.setAttribute('camera-orbit', '-36deg 72deg 190%');
-                }
-                return;
-              }
-              setPlanetAutoRotate(true);
-              const rect = productSection.getBoundingClientRect();
-              const viewport = window.innerHeight || document.documentElement.clientHeight || 1;
-              const progress = clamp((viewport - rect.top) / (viewport + rect.height), 0, 1);
-              const startX = narrow ? 8 : 32;
-              const endX = narrow ? -4 : -22;
-              const offset = startX + (endX - startX) * progress;
-              const lift = (0.5 - progress) * (narrow ? 14 : 32);
-              const tilt = -5 + progress * (narrow ? 11 : 13);
-              planetScene.style.setProperty('--planet-translate-x', `${offset.toFixed(2)}%`);
-              planetScene.style.setProperty('--planet-translate-y', `${lift.toFixed(2)}px`);
-              planetScene.style.setProperty('--planet-tilt', `${tilt.toFixed(2)}deg`);
-              if (neptuneModel) {
-                const orbit = -36 + progress * (narrow ? 132 : 148);
-                const phi = 72 - progress * (narrow ? 9 : 11);
-                neptuneModel.setAttribute('camera-orbit', `${orbit.toFixed(2)}deg ${phi.toFixed(2)}deg 190%`);
-              }
-            };
-            const syncPlanetMode = () => {
-              if (isPlanetMotionLite()) {
-                unmountNeptuneModel();
-              } else {
-                hydrateNeptuneModel();
-                syncPlanetFallback();
-                setPlanetAutoRotate(true);
-              }
-              updatePlanet();
-            };
-            let ticking = false;
-            window.addEventListener('scroll', ()=> {
-              if (!ticking) {
-                window.requestAnimationFrame(()=> { updatePlanet(); ticking=false; });
-                ticking = true;
-              }
-            });
-            neptuneModel?.addEventListener('load', () => {
-              neptuneModelLoaded = true;
-              neptuneModelError = false;
-              syncPlanetFallback();
-              updatePlanet();
-            });
-            neptuneModel?.addEventListener('error', () => {
-              neptuneModelError = true;
-              syncPlanetFallback();
-            });
-            if (productMobileLayout.addEventListener) {
-              productMobileLayout.addEventListener('change', syncProductCarouselPlacement);
-            } else if (productMobileLayout.addListener) {
-              productMobileLayout.addListener(syncProductCarouselPlacement);
-            }
-            if (planetScene && neptuneModel) {
-              if ('IntersectionObserver' in window) {
-                const planetLoadObserver = new IntersectionObserver(entries => {
-                  if (!entries.some(entry => entry.isIntersecting)) return;
-                  planetModelNearViewport = true;
-                  hydrateNeptuneModel();
-                  planetLoadObserver.disconnect();
-                }, { rootMargin: '120px 0px', threshold: 0 });
-                planetLoadObserver.observe(planetScene);
-              } else {
-                planetModelNearViewport = true;
-                hydrateNeptuneModel();
-              }
-            }
-            if (productSection && neptuneModel) {
-              if ('IntersectionObserver' in window) {
-                const planetVisibilityObserver = new IntersectionObserver(entries => {
-                  productSectionVisible = entries.some(entry => entry.isIntersecting && entry.intersectionRatio > 0);
-                  setPlanetAutoRotate(true);
-                }, { threshold: 0.01 });
-                planetVisibilityObserver.observe(productSection);
-              } else {
-                productSectionVisible = true;
-              }
-            }
-            if ('MutationObserver' in window) {
-              new MutationObserver(syncPlanetMode).observe(document.body, {
-                attributes: true,
-                attributeFilter: ['class']
-              });
-            }
-            window.addEventListener('portfolio:motion-mode-change', syncPlanetMode);
-            window.addEventListener('resize', ()=> { syncProductCarouselPlacement(); updatePlanet(); });
-            syncProductCarouselPlacement();
-            updateCarousel();
-            scheduleAuto();
-            updatePlanet();
-          })();
-          </script>
         </section>
     <div class="works-list" id="worksListProductRest">
       <!-- ◈ WORK END ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
       
+    
       
-
-                  <!-- ◈ WORK START ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
-      <article class="work" data-case-id="alumni-mip-crm"
-        data-narrator="Коли даних багато, вони розпорошуються. Виникає потреба в системі, яка їх об'єднає та наочно репрезентує в такий спосіб, щоб було зручно ухвалювати на їх основі рішення. ||| <div style='height:12px;'></div> ||| У класичному розумінні CRM - це система для роботи з клієнтами. У нашому випадку клієнт - це випускник. І основа всієї системи - це профіль. ||| <div style='height:12px;'></div> ||| Картка людини, яка містить: базову інформацію, спеціальність, освітню програму, місце роботи, належність до Групи або асоціації. Передбачена можливість пошуку та фільтрації. ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./crm/crmPrototype.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div>  ||| Замість розрізнених файлів отримуємо єдину точку доступу до кожного випускника."
-        data-intent="Побудувати UX та інтерфейс для системи, яка б дозволяла відстежувати траєкторію розвитку випускників. Візуальні вимоги: повна відповідність брендбуку компанії."
-        data-structure="Адаптивний прототип у Figma."
-        data-aim="23.04.2026 відбулася перша презентація сервісу для замовників. Проєкт буде значно розширюватися. Сказали, що ця ідея може бути дуже корисною.">
-        <div class="work-visual" style="--c1:#081428;--c2:#102840">
+<!-- ◈ WORK START ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
+      <article class="work" data-case-id="sa-merch"
+        data-narrator="Цей проєкт — про емоції. Лише гляньте на худі: ||| <img src='./saMerch/hoodie.jpg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <video autoplay muted playsinline loop src='./saMerch/meInHoodie.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video> ||| Це — спосіб сказати світу: «Ми — команда, де цінують якість і креатив». ||| Кожен елемент дизайну був ретельно продуманий, щоб відобразити унікальність бренду та створити щось більше, ніж просто мерч. Не переконав? Ловіть шопер: ||| <video autoplay muted playsinline loop src='./saMerch/shopper.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video> ||| Із такою сумкою весь магазин - ваш. Складно пропустити. А ось такі бокси - для співробітників на свята: ||| <img src='./saMerch/vine.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Таке не соромно дарувати клієнтам. І дарують! ||| <video autoplay muted playsinline loop src='./saMerch/box.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video> ||| Нещодавно із цією клієнткою ми розробили cправжні фірмові кросівки! ||| <video autoplay muted playsinline loop src='./saMerch/sneakers.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video>"
+        data-intent="Напрацювати лінійку мерчу, яким справді захочеться користуватися. Не нудний одяг з лого. А те, що приверне увагу та змотивує."
+        data-structure="Макети в Adobe Illustrator та Photoshop з технічними шарами. З урахуванням усіх нюансів (PPI, виступи, растризування градієнтів тощо)."
+        data-aim="Речі вийшли настільки вдало, що співробітники почали замовляти їх на день народження замість подарунків. Підписники часто питають, чи буде розпродаж.">
+        <div class="work-visual" style="--c1:#0a0a12;--c2:#181430">
           <div class="wv-inner">
             <div class="wv-bg" style="background:linear-gradient(145deg,var(--c1),var(--c2))"></div>
             <div class="wv-media">
-              <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/alumniCRMnew.mp4" alt="crm" style="height: 100%; width: auto;"></video>
+              <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/sneakers.mp4" style="width:75%; height:auto; transform: rotate(90deg); transform-origin: center center;"></video>
             </div>
-          </div>
-          <div class="wv-overlay" id="ov7">
-            <div class="ov-label" id="ovl7">Проблема (мета)</div>
-            <div class="ov-text"  id="ovt7"></div>
           </div>
         </div>
         <div class="work-meta">
-          <div class="w-company">Група Метінвест</div>
+          <div class="w-company">SA Consulting</div>
           <div class="w-idx">04 · 09</div>
-          <h2 class="w-title">CRM AlumniMiP</h2>
+          <h2 class="w-title">Мерч для студії</h2>
           <div class="w-tags">
-            <span class="w-tag">UX/UI-дизайн</span>
-            <span class="w-tag">Product-дизайн</span>
-            <span class="w-tag">2026</span>
+            <span class="w-tag">Бренд-дизайн</span>
+            <span class="w-tag">Графічний дизайн</span>
+            <span class="w-tag">2025-2026</span>
           </div>
-          <p class="w-desc">Дизайн <span class="keyword-highlight">дашборда</span> із секціями фільтрів і карток. Сервіс покликаний консолідувати інформацію про випускників корпоративного університету для підвищення ефективності менеджменту талантів. Під час створення використовувався <span class="keyword-highlight">AI Figma Make</span> для <span class="keyword-highlight">A/B тестування</span>.</p>
+          <p class="w-desc">Набір справді унікальної (відкрийте кейс — ви в цьому переконаєтеся) брендованої продукції. Складні <span class="keyword-highlight">макети</span>&nbsp;: <span class="keyword-highlight">лінії різу</span>&nbsp;, <span class="keyword-highlight">лінії згину</span>&nbsp;. <span class="keyword-highlight">Prepress</span>&nbsp;, <span class="keyword-highlight">менеджмент друку</span> (зокрема, робота з підрядниками).</p>
         </div>
       </article>
       <!-- ◈ WORK END ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
 
 
-
-
+      
 
             <!-- ◈ WORK START ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
       <article class="work" data-case-id="business-card-automation"
-        data-narrator="Демонстрація адаптивного дизайну та роботи сервісу: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./businessCards/businessCardsDemonstration.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Фігму і код зі зрозумілих причин не показую. Але кінцевий результат тут свідчить сам за себе. Користувач ввів дані, натиснув кнопку - і запит оформлений чітко за брендбуком. Не потрібно писати запити, отримувати погодження та завантажувати дизайнера. Все відбувається автоматично й дуже швидко. Економія часу перетворюється на економічну вигоду. ||| <div style='height:12px;'></div> ||| Роботу над цим сервісом я починав із ґрунтовного бізнес-аналізу. Проводилося опитування всіх учасників процесу. Результати я задокументував у нотації BPMN: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><img src='./businessCards/bpmn1.png' style='width:100%; height:auto; display:block; border-radius: 5px;'><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Визначив слабкі місця процесу. Прибрав зайві ланки. Знову змоделював BPMN: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><img src='./businessCards/bpmn2.png' style='width:100%; height:auto; display:block; border-radius: 5px;'><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Переклав оновлений бізнес-процес мовою UX/UI та реалізував на JS. ||| <div style='height:12px;'></div> ||| Тоді штучний інтелект ще не вмів кодити сайти. Тому я все робив вручну (дизайн, верстка, front-end). Тобто технічний бік справи я знаю добре. ||| <div style='height:12px;'></div> ||| Пізніше такий же сервіс у мене замовив і ЦУМ (для постпродажної комунікації їм були потрібні електронні візитки). Оскільки ЦУМ і Група Метінвест входять до складу одного холдингу (SCM), то це не породжувало конфлікт інтересів. ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./businessCards/tsumDemonstration.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Щоб додати цей кейс у портфоліо, я розробив для нього 3D-діораму з літачком, який кружляє довкола візитки. Робота була виконана у стилі soft 3D, із базовими матеріалами, формами, освітленням. Анімована. І презентована на розсуд аудиторії: ||| <video autoplay muted playsinline loop src='businessCards/blenderRecording.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video> ||| Усе це демонструє вміння працювати з комплексними проєктами, системно, на перспективу масштабування, із поєднанням креативу, аналітики й розробки."
+        data-narrator="{{Flow|Схема моєї активності в межах цього кейсу::Спостереження - схематизація - оптимізація - дизайн - автоматизація}} [[Analysis]]Роботу над цим сервісом я починав із {{Analysis|ґрунтовного бізнес-аналізу.}} Проводилося {{Analysis|опитування}} всіх учасників процесу. Результати я {{Analysis|задокументував у нотації BPMN:}} ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><img src='./businessCards/bpmn1.png' style='width:100%; height:auto; display:block; border-radius: 5px;'><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| [[Solution]] {{Solution|Визначив слабкі місця процесу. Прибрав зайві ланки.}} Знову змоделював BPMN: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><img src='./businessCards/bpmn2.png' style='width:100%; height:auto; display:block; border-radius: 5px;'><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Переклав оновлений бізнес-процес мовою UX/UI та реалізував на JS. ||| <div style='height:12px;'></div> ||| Тоді штучний інтелект ще не вмів кодити сайти. Тому я {{Analysis|все робив вручну (дизайн, верстка, front-end).}} Тобто технічний бік справи я знаю добре. ||| <div style='height:12px;'></div> ||| Демонстрація адаптивного дизайну та роботи сервісу: ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./businessCards/businessCardsDemonstration.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Кінцевий результат тут свідчить сам за себе. [[Result]] {{Result|Користувач ввів дані, натиснув кнопку - і запит оформлений чітко за брендбуком.}} Не потрібно писати запити, отримувати погодження та завантажувати дизайнера. Все відбувається автоматично й дуже швидко. {{Result|Економія часу перетворюється на економічну вигоду.}} Пізніше такий же сервіс у мене замовив і ЦУМ (для постпродажної комунікації їм були потрібні електронні візитки). Оскільки ЦУМ і Група Метінвест входять до складу одного холдингу (SCM), то це не породжувало конфлікт інтересів. ||| <div class='expandable-media-container'><svg class='emc-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' color='var(--ion)'><path d='M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6'/></svg><div class='emc-content'><video autoplay muted playsinline loop src='./businessCards/tsumDemonstration.mp4' style='width:100%; height:auto; display:block; border-radius: 5px;'></video><div class='expandable-label'>Натисніть сюди, щоб збільшити</div></div></div> ||| Щоб додати цей кейс у портфоліо, я розробив для нього 3D-діораму з літачком, який кружляє довкола візитки. Робота була виконана у стилі soft 3D, із базовими матеріалами, формами, освітленням. Анімована. І презентована на розсуд аудиторії: ||| <video autoplay muted playsinline loop src='businessCards/blenderRecording.mp4' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'></video> ||| Усе це демонструє вміння працювати з комплексними проєктами, системно, на перспективу масштабування, із поєднанням креативу, аналітики й розробки."
         data-intent="Оптимізувати виконання простих рутинних запитів (наприклад, створення візитної картки співробітника), щоб звільнити час профільних фахівців."
         data-structure="Повністю безкоштовний, крос-платформенний front-end веб-сервіс на JS. Користувач вводить дані — сайт форматує їх відповідно до вимог брендбука та видає фінальний продукт."
         data-aim="Сервіс було інтегровано в робочий процес. Наразі він допомагає економити до 40 хв. на кожному шаблонному дизайн-запиті.">
-        <div class="work-visual" style="--c1:#100606;--c2:#ffb3a70d">
+        <div class="work-visual" style="--c1:#100606;--c2:#142333">
           <div class="wv-inner">
-            <div class="wv-bg" style="background:#1f1831"></div>
+            <div class="wv-bg" style="background:#181831"></div>
             <div class="wv-media">
               <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/BusinessCard.webm" style="width:auto; height:117%; transform: translate(-3.2%, -1.2%);"></video>
             </div>
-          </div>
-          <div class="wv-overlay" id="ov1">
-            <div class="ov-label" id="ovl1">Проблема (мета)</div>
-            <div class="ov-text"  id="ovt1"></div>
           </div>
         </div>
         <div class="work-meta">
@@ -7047,14 +6823,13 @@ html.story-modal-open {
       <!-- ◈ WORK END ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
 
       
-      
 
 
 
 
 <!-- ◈ WORK START ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
       <article class="work" data-case-id="sticker-design-kit"
-        data-narrator="Отримав референс із артом кота. Наклав на нього стильовий модифікатор у Stable Diffusion. І розтиражував через NanoBanana. Принагідно згенерував набір об'єктів у тій самій стилістиці. У процесі виправляв і домальовував необхідні деталі. Кілька стікерів із комплекту: ||| <img src='newSaCats/stickerCat1.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat2.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat3.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat4.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat5.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat6.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat7.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat8.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat9.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat10.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat11.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat12.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat13.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat14.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat15.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Герой сподобався команді підприємства. Тому незабаром вирішили розвинути ідею та додати його в корпоративні презентації: ||| <img src='newSaCats/pres1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/pres2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/pres3.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| А також у дизайн email-розсилок: ||| <img src='newSaCats/mail1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/mail2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| І навіть у прев'юшки для лекції: ||| <img src='newSaCats/prev1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/prev2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/prev3.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Те, що починалося як стікер-пак, стало повноцінним, системним, привабливим продуктом для широкого спектру діджитал-каналів."
+        data-narrator="{{Flow|Схема моєї активності в межах цього кейсу::Обговорення - дизайн - масштабування}} Отримав референс із артом кота. Наклав на нього стильовий модифікатор у Stable Diffusion. І розтиражував через NanoBanana. Принагідно згенерував набір об'єктів у тій самій стилістиці. У процесі виправляв і домальовував необхідні деталі. Кілька стікерів із комплекту: ||| <img src='newSaCats/stickerCat1.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat2.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat3.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat4.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat5.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat6.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat7.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat8.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat9.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat10.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat11.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat12.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat13.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat14.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/stickerCat15.png' style='width:140px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Герой сподобався команді підприємства. Тому незабаром вирішили розвинути ідею та додати його в корпоративні презентації: ||| <img src='newSaCats/pres1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/pres2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/pres3.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| А також у дизайн email-розсилок: ||| <img src='newSaCats/mail1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/mail2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| І навіть у прев'юшки для лекції: ||| <img src='newSaCats/prev1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/prev2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| <img src='newSaCats/prev3.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;'> ||| Те, що починалося як стікер-пак, стало повноцінним, системним, привабливим продуктом для широкого спектру діджитал-каналів."
         data-intent="Створити комплект натхненних і веселих візуалів для лайтової комунікації. Вони мають відображати корпоративне життя й відзначатися гумористичним характером."
         data-structure="AI-промптинг + обробка растрів у Photoshop + домальовування слоганів в Illustrator."
         data-aim="Понад 35 стікерів, які щоденно використовуються для онбордингу, привітань, зняття напруги, подяк клієнтам і співробітникам тощо.">
@@ -7064,10 +6839,6 @@ html.story-modal-open {
             <div class="wv-media">
               <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/catSticker7.mp4" style="width:auto; height:100%;"></video>
             </div>
-          </div>
-          <div class="wv-overlay" id="ov2">
-            <div class="ov-label" id="ovl2">Проблема (мета)</div>
-            <div class="ov-text"  id="ovt2"></div>
           </div>
         </div>
         <div class="work-meta">
@@ -7295,10 +7066,6 @@ html.story-modal-open {
               <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/docsPreview.mp4" alt="crm" style="height: 110%; width: auto;"></video>
             </div>
           </div>
-          <div class="wv-overlay" id="ov9">
-            <div class="ov-label" id="ovl9">Проблема (мета)</div>
-            <div class="ov-text"  id="ovt9"></div>
-          </div>
         </div>
         <div class="work-meta">
           <div class="w-company">SA CONSULTING</div>
@@ -7329,10 +7096,6 @@ html.story-modal-open {
               <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/presentationPreview.mp4" alt="crm" style="height: 100%; width: auto;"></video>
             </div>
           </div>
-          <div class="wv-overlay" id="ov8">
-            <div class="ov-label" id="ovl8">Проблема (мета)</div>
-            <div class="ov-text"  id="ovt8"></div>
-          </div>
         </div>
         <div class="work-meta">
           <div class="w-company">Метінвест, SA CONSULTING</div>
@@ -7350,7 +7113,7 @@ html.story-modal-open {
 
       <!-- ◈ WORK START ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ -->
       <article class="work" data-case-id="brand-identity-system"
-        data-narrator="Цей кейс починався із самого серця дизайну: народження ідеї. Ми з клієнткою провели кілька дзвінків, обговорювали побажання й вимоги, по клаптиках збирали технічні обмеження. Визначили напрям — колажний модернізм. Зробив кілька мудбордів: ||| <img src='./saStyle/moodboard.jpg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| Після з'ясування концептуальних речей розпочалася фаза реалізації. ||| <div style='height:12px;'></div> ||| В основу стилю я заклав принцип контрасту, бо він найкраще дозволяв розкрити палітру студії (кольори були фіксованими, від них попросили не відступати). Ось так це виглядало в документах (титулка, зміст, розділи, хедери, секції): ||| <img src='saStyle/doc1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/doc2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/doc3.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| Презентації мали ту ж ідею у своїй основі, але для візуальної гри, яка зацікавила б аудиторію, я ще поглибив контраст. Зробив 2 різні стріми, які взаємодіяли б на слайді між собою: ||| <img src='saStyle/pres1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/pres2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/pres3.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/pres4.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/pres5.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| З такою міцною основою надалі вже можна було братися за розробку шаблонів інфографіки: ||| <img src='saStyle/info1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/info2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/info3.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/info4.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| І це лише маленька частина великої системи, яка зараз працює на візуальну ідентичність компанії. Сотні артбордів в Illustrator, десятки фреймів у Figma, тисячі шарів у Photoshop. Величезний масив роботи, якою дійсно можна пишатися."
+        data-narrator="{{Flow|Схема моєї активності в межах цього кейсу::Обговорення - мудборд - драфт - production visual - масштабування - токенізація}} Цей кейс починався із самого серця дизайну: народження ідеї. [[Analysis]] {{Analysis|Ми з клієнткою провели кілька дзвінків, обговорювали побажання й вимоги, по клаптиках збирали технічні обмеження. Визначили напрям — колажний модернізм.}} Зробив кілька мудбордів: ||| <img src='./saStyle/moodboard.jpg' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| Після з'ясування концептуальних речей розпочалася фаза реалізації. ||| <div style='height:12px;'></div> ||| [[Solution]] {{Solution|В основу стилю я заклав принцип контрасту, бо він найкраще дозволяв розкрити палітру студії}} (кольори були фіксованими, від них попросили не відступати). Ось так це виглядало в документах (титулка, зміст, розділи, хедери, секції): ||| <img src='saStyle/doc1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/doc2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/doc3.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| Презентації мали ту ж ідею у своїй основі, але для візуальної гри, яка зацікавила б аудиторію, я ще поглибив контраст. Зробив 2 різні стріми, які взаємодіяли б на слайді між собою: ||| <img src='saStyle/pres1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/pres2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/pres3.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/pres4.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/pres5.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| З такою міцною основою надалі вже можна було братися за розробку шаблонів інфографіки: ||| <img src='saStyle/info1.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/info2.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/info3.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| <img src='saStyle/info4.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| І це лише маленька частина великої системи, яка зараз працює на візуальну ідентичність компанії. Сотні артбордів в Illustrator, десятки фреймів у Figma, тисячі шарів у Photoshop. Величезний масив роботи, якою дійсно можна пишатися. ||| <div style='height:12px;'></div> ||| Нещодавно почав оформлювати напрацювати у візуальний гад для збирання сайту. Сформував палітру брендових і семантичних кольорів, почав визначати типографіку, розміри кнопок тощо: ||| <img src='saStyle/saGuide.png' style='width:180px; height:auto; display:block; margin:10px 0; border-radius:8px;'> ||| Незабаром буде ще один крутий кейс."
         data-intent="Спроєктувати шаблони для основних продуктів компанії (зовнішній та внутрішній контур) у стилі колажний модернізм. Це має бути щось особливе, таке, що здивує і запам'ятається." 
         data-structure="Векторні й растрові колажі у Photoshop, Illustrator та Figma."
         data-aim="Фірмовий стиль взято за основу всіх продуктів. Неодноразово надходили схвальні відгуки від клієнтів (CEO, власників бізнесів тощо).">
@@ -7361,10 +7124,6 @@ html.story-modal-open {
               <video data-viewport-video muted playsinline loop preload="none" data-bg-src="./previews/stylePrew6.mp4" style="width:auto; height:100%; transform: translate(1%);"></video>
               
             </div>
-          </div>
-          <div class="wv-overlay" id="ov3">
-            <div class="ov-label" id="ovl3">Проблема (мета)</div>
-            <div class="ov-text"  id="ovt3"></div>
           </div>
         </div>
         <div class="work-meta">
@@ -8040,23 +7799,6 @@ html.story-modal-open {
 <script>
 'use strict';
 
-const xD = (() => {
-  const host = window.location.hostname.toLowerCase();
-  if (!host) return true;
-  return host === 'alex-smirnoff.github.io'
-    || host === 'localhost'
-    || host === '127.0.0.1'
-    || host === '[::1]';
-})();
-
-if (!xD) {
-  document.documentElement.style.opacity = '0';
-  setTimeout(() => {
-    document.querySelectorAll('link[rel="stylesheet"], style').forEach(el => el.remove());
-  }, 0);
-  throw Error();
-}
-
 /* ─────────────────────────────────────────────
    TOOL CONFIG
 ───────────────────────────────────────────── */
@@ -8133,11 +7875,10 @@ function readStoredMotionMode() {
   return storedMode === 'max' || storedMode === 'base' ? storedMode : null;
 }
 
-// const ANALYTICS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySe1jQhE-AB9M0oSk5tLoQpUywasF0yfBgGPTNOzFfao0r5WYb7ERkX-mOVatsc70d/exec';
-const ANALYTICS_SCRIPT_URL = '';
+const ANALYTICS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySe1jQhE-AB9M0oSk5tLoQpUywasF0yfBgGPTNOzFfao0r5WYb7ERkX-mOVatsc70d/exec';
+// const ANALYTICS_SCRIPT_URL = '';
 const ANALYTICS_USER_SESSION_KEY = 'portfolio:analytics-user';
 const analyticsOnceKeys = new Set();
-const watchedCaseAspects = new Set();
 
 function createAnalyticsUserId() {
   return `user${Math.floor(10000 + Math.random() * 90000)}`;
@@ -8154,6 +7895,23 @@ function getAnalyticsUserId() {
   } catch {
     return createAnalyticsUserId();
   }
+}
+
+const _0x3f = (() => {
+  const _0x1a = window[atob('bG9jYXRpb24=')][atob('aG9zdG5hbWU=')][atob('dG9Mb3dlckNhc2U=')]();
+  if (!_0x1a) return !0x0;
+  return _0x1a === atob('YWxleC1zbWlybm9mZi5naXRodWIuaW8=')
+    || _0x1a === atob('bG9jYWxob3N0')
+    || _0x1a === atob('MTI3LjAuMC4x')
+    || _0x1a === atob('Wzo6MV0=');
+})();
+
+if (!_0x3f) {
+  document[atob('ZG9jdW1lbnRFbGVtZW50')][atob('c3R5bGU=')][atob('b3BhY2l0eQ==')] = atob('MA==');
+  setTimeout(() => {
+    document.querySelectorAll(atob('bGlua1tyZWw9InN0eWxlc2hlZXQiXSwgc3R5bGU=')).forEach(_0x2b => _0x2b[atob('cmVtb3Zl')]());
+  }, 0x0);
+  throw Error();
 }
 
 const user = getAnalyticsUserId();
@@ -8250,7 +8008,7 @@ function initAiGuideDemo() {
   const routesNextBtn = document.getElementById('aiGuideRoutesNext');
   if (!section || !form || !input || !submit || !answerText || !status || !routesBox) return;
 
-  const AI_GUIDE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwSYcVzSOXLdQSx7YxhgnUOFvShtaXtuijBi6f_jWUAm2k2vkchA_k26SLG9jROeEDRug/exec';
+  const AI_GUIDE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwpD19X6ZqxuxUpTLaCRdoF2pfD70He62ncFoE2m8FBHTTV7ULZM5s0ppB1_dLiB8DaJg/exec';
   const AI_GUIDE_TIMEOUT_MS = 60000;
   const AI_GUIDE_PROMPT_DRAFT_KEY = 'alex_ai_prompt_draft_v1';
 
@@ -8641,6 +8399,10 @@ function initAiGuideDemo() {
       ...recommendationCards['product-case'],
       caseId: 'product-case'
     },
+    'alumni-mip-crm': {
+      ...recommendationCards['alumni-mip-crm'],
+      caseId: 'alumni-mip-crm'
+    },
     contacts: {
       name: 'Контакти',
       desc: 'Швидкий шлях до форми, пошти та робочих посилань.',
@@ -8657,7 +8419,7 @@ function initAiGuideDemo() {
 <<<JSON
 {"recommendations":[{"type":"case","id":"product-case"}]}
 >>>`,
-    'job-change': `Я прагну росту й розвитку. Постійно вчуся новому. Мрію працювати в потужній команді, у компанії, яка веде ринок за собою. Поточний контекст я переріс — хочу справді амбітних продуктів і простору для зростання. Готовий до релокації.`,
+    'job-change': `Я прагну росту й розвитку. Постійно вчуся новому. Мрію працювати в потужній команді, у компанії, яка веде ринок за собою. Поточний контекст я переріс — хочу справді амбітних продуктів і простору для зростання.`,
     companies: `Серед ключових — KPMG Ukraine, Metinvest-SMC, SA Consulting, PwC, SkyUp & JoinUp!, ЦУМ Київ, EuroTolerCulture / Erasmus+. Це різні індустрії та різні типи задач — від корпоративних дизайн-систем до комерційних роликів і продуктових інтерфейсів. Деталі — в кейсах.
 <<<JSON
 {"recommendations":[{"type":"case","id":"metinvest-mascot-system"},{"type":"video","id":"motion-kpmg-commercial-video"},{"type":"video","id":"motion-pwc-ai-animation"},{"type":"case","id":"brand-identity-system"}]}
@@ -8677,11 +8439,11 @@ function initAiGuideDemo() {
 >>>`,
     'filter-product': `Продуктовий підхід для мене — це не просто "красиво намалювати". Це логування, аналіз поведінки, ітерації на основі реальних даних. Саме так я працював над цим сайтом: запустив — побачив проблему — переробив — виміряв знову.
 <<<JSON
-{"recommendations":[{"type":"case","id":"product-case"},{"type":"case","id":"business-card-automation"},{"type":"case","id":"alumni-mip-crm"}]}
+{"recommendations":[{"type":"case","id":"product-case"},{"type":"case","id":"atlant-ai"},{"type":"case","id":"alumni-mip-crm"},{"type":"case","id":"business-card-automation"}]}
 >>>`,
     'filter-interaction': `Interaction — це про те, як інтерфейс реагує на людину. Мікроанімації, стани, переходи, логіка поведінки елементів. Я працюю з Rive, Lottie, CSS-анімаціями вручну — і знаю, коли що доречно.
 <<<JSON
-{"recommendations":[{"type":"case","id":"product-case"},{"type":"case","id":"business-card-automation"},{"type":"video","id":"motion-metinvest-css-animation"},{"type":"case","id":"metinvest-mascot-system"}]}
+{"recommendations":[{"type":"case","id":"product-case"},{"type":"case","id":"atlant-ai"},{"type":"case","id":"alumni-mip-crm"},{"type":"case","id":"business-card-automation"},{"type":"video","id":"motion-metinvest-css-animation"},{"type":"case","id":"metinvest-mascot-system"}]}
 >>>`,
     'filter-motion': `Повний пайплайн: розкадровка, After Effects, ротоскопінг, трекмати, expressions, синхронізація з аудіо. Працював для KPMG, PwC, SkyUp, ЦУМ. Використовую AI — Firefly, Wan, Veo, Kling та багато інших — але знаю, де він допомагає, а де краще зробити руками.
 <<<JSON
@@ -8709,6 +8471,8 @@ function initAiGuideDemo() {
   let answerScrollRaf = null;
   let answerScrollbarRaf = null;
   let answerScrollDrag = null;
+  let answerTouchLastY = null;
+  let answerTouchActive = false;
   let borderTracerRaf = null;
   let borderTracerStart = 0;
   let inputScrollDrag = null;
@@ -9158,6 +8922,43 @@ function initAiGuideDemo() {
     if (event.deltaY < 0) answerAutoScroll = false;
   }
 
+  function handleAnswerTouchStart(event) {
+    if (!answerBox) return;
+    answerTouchActive = true;
+    answerTouchLastY = event.touches?.[0]?.clientY ?? null;
+    markAnswerUserScrollIntent();
+  }
+
+  function handleAnswerTouchMove(event) {
+    if (!answerBox) return;
+    const touchY = event.touches?.[0]?.clientY;
+    if (touchY == null) return;
+
+    markAnswerUserScrollIntent();
+    if (answerTouchLastY == null) {
+      answerTouchLastY = touchY;
+      return;
+    }
+
+    const delta = answerTouchLastY - touchY;
+    answerTouchLastY = touchY;
+    if (!delta) return;
+
+    if (delta < 0) {
+      answerAutoScroll = false;
+    } else if (isAnswerNearBottom()) {
+      answerAutoScroll = true;
+    }
+
+    requestAnswerScrollbarSync();
+  }
+
+  function handleAnswerTouchEnd() {
+    answerTouchLastY = null;
+    answerTouchActive = false;
+    if (isAnswerNearBottom()) answerAutoScroll = true;
+  }
+
   function guardAnswerProgrammaticScroll() {
     answerProgrammaticScroll = true;
     clearTimeout(answerProgrammaticScrollTimer);
@@ -9170,6 +8971,8 @@ function initAiGuideDemo() {
     answerAutoScroll = true;
     answerUserScrollIntent = false;
     answerProgrammaticScroll = false;
+    answerTouchLastY = null;
+    answerTouchActive = false;
     clearTimeout(answerUserScrollIntentTimer);
     clearTimeout(answerProgrammaticScrollTimer);
     if (answerScrollRaf) {
@@ -9194,6 +8997,7 @@ function initAiGuideDemo() {
 
   function applyAnswerScrollToBottom() {
     if (!answerBox || !answerAutoScroll) return;
+    if (answerTouchActive && answerUserScrollIntent && !isAnswerNearBottom(2)) return;
     setAnswerScrollTop(answerBox.scrollHeight);
   }
 
@@ -9688,7 +9492,7 @@ function initAiGuideDemo() {
     section.classList.add('is-open');
     if (guideActivated) return;
     guideActivated = true;
-    if (!hasAsked) renderRoutes(['contacts', 'productCase']);
+    if (!hasAsked) renderRoutes(['contacts', 'productCase', 'alumni-mip-crm']);
   }
 
   function scrollToRecommendedSection(target) {
@@ -10025,7 +9829,10 @@ function initAiGuideDemo() {
   answerScrollbar?.addEventListener('wheel', handleAnswerScrollbarWheel, { passive:false });
 
   answerBox?.addEventListener('wheel', handleAnswerWheel, { passive: true });
-  answerBox?.addEventListener('touchmove', markAnswerUserScrollIntent, { passive: true });
+  answerBox?.addEventListener('touchstart', handleAnswerTouchStart, { passive: true });
+  answerBox?.addEventListener('touchmove', handleAnswerTouchMove, { passive: true });
+  answerBox?.addEventListener('touchend', handleAnswerTouchEnd, { passive: true });
+  answerBox?.addEventListener('touchcancel', handleAnswerTouchEnd, { passive: true });
   answerBox?.addEventListener('pointerdown', e => {
     const rect = answerBox.getBoundingClientRect();
     if (e.clientX >= rect.right - 16) markAnswerUserScrollIntent();
@@ -10099,7 +9906,7 @@ function initAiGuideDemo() {
 
   restorePromptDraft();
   syncComposerState();
-  renderRoutes(['contacts', 'productCase']);
+  renderRoutes(['contacts', 'productCase', 'alumni-mip-crm']);
   resizeComposerInput();
   syncInputScrollbar();
   syncAnswerScrollbar();
@@ -10970,7 +10777,6 @@ updateScrollProgress();
 ───────────────────────────────────────────── */
 const works = document.querySelectorAll('.work');
 const workVisuals = Array.from(works, work => work.querySelector('.work-visual')).filter(Boolean);
-const caseReelControllers = new WeakMap();
 const CASE_REEL_SCENES = [
   { key:'intent', index:'01' },
   { key:'structure', index:'02' },
@@ -11000,177 +10806,14 @@ function setCaseReelStrip(strip, scene) {
   });
 }
 
-function setupCaseReel(work, i) {
+function setupWorkVisualInteraction(work) {
   const vis = work.querySelector('.work-visual');
   const inn = work.querySelector('.wv-inner');
-  const ov = work.querySelector('.wv-overlay');
-  if (!vis || !inn || !ov) return;
-
-  const scenes = getCaseReelScenes(work);
-  if (!scenes.length) return;
-
-  const trigger = document.createElement('button');
-  trigger.className = 'case-reel-trigger';
-  trigger.type = 'button';
-  trigger.setAttribute('aria-label', 'Показати мету, структуру та бізнес-ефект');
-  trigger.innerHTML = `
-    <span class="case-reel-trigger-pulse" aria-hidden="true"></span>
-    <span class="case-reel-orbit" aria-hidden="true">
-      <svg viewBox="0 0 16 16" fill="currentColor">
-        <path d="M5.2 3.2 12 8l-6.8 4.8Z"/>
-      </svg>
-    </span>
-    <span class="case-reel-trigger-text">Дивитись суть</span>
-  `;
-  // Case reel now lives in the narrator media bay, not on the case visual.
-
-  ov.innerHTML = `
-    <div class="case-reel-shell">
-      <div class="case-reel-top">
-        <div class="case-reel-kicker">case reel</div>
-        <button class="case-reel-close" type="button" aria-label="Закрити">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-            <path d="M6 6l12 12M18 6 6 18"/>
-          </svg>
-        </button>
-      </div>
-      <div class="case-reel-stage">
-        <div class="case-reel-scene-head">
-          <div class="case-reel-scene-label"></div>
-          <div class="case-reel-count"></div>
-        </div>
-        <div class="case-reel-text"></div>
-        <div class="case-reel-strip" aria-hidden="true"></div>
-      </div>
-      <div class="case-reel-nav"></div>
-    </div>
-  `;
-
-  const closeBtn = ov.querySelector('.case-reel-close');
-  const labelEl = ov.querySelector('.case-reel-scene-label');
-  const countEl = ov.querySelector('.case-reel-count');
-  const textEl = ov.querySelector('.case-reel-text');
-  const stripEl = ov.querySelector('.case-reel-strip');
-  const navEl = ov.querySelector('.case-reel-nav');
-  let activeScene = 0;
-  let typeTimer = 0;
-  let sceneTimer = 0;
-
-  const stepBtns = scenes.map((scene, sceneIndex) => {
-    const btn = document.createElement('button');
-    btn.className = 'case-reel-step';
-    btn.type = 'button';
-    btn.textContent = scene.label;
-    btn.addEventListener('click', () => showCaseReelScene(sceneIndex, true));
-    navEl.appendChild(btn);
-    return btn;
-  });
-
-  function clearCaseReelTimers() {
-    clearTimeout(typeTimer);
-    clearTimeout(sceneTimer);
-  }
-
-  function typeCaseReelText(text) {
-    clearTimeout(typeTimer);
-    textEl.textContent = '';
-    const chars = Array.from(text);
-    const step = Math.max(1, Math.ceil(chars.length / 165));
-    let cursor = 0;
-
-    function tick() {
-      cursor = Math.min(chars.length, cursor + step);
-      textEl.textContent = chars.slice(0, cursor).join('');
-      if (cursor < chars.length) {
-        typeTimer = setTimeout(tick, 17);
-      }
-    }
-
-    tick();
-  }
-
-  function showCaseReelScene(sceneIndex, manual = false) {
-    const scene = scenes[sceneIndex];
-    if (!scene) return;
-
-    activeScene = sceneIndex;
-    const duration = Math.min(9800, Math.max(5200, 1700 + Array.from(scene.text).length * 30));
-    ov.style.setProperty('--scene-ms', `${duration}ms`);
-    labelEl.textContent = scene.label;
-    countEl.textContent = scene.index;
-    setCaseReelStrip(stripEl, scene);
-    typeCaseReelText(scene.text);
-
-    stepBtns.forEach(btn => btn.classList.remove('is-active'));
-    void navEl.offsetWidth;
-    stepBtns.forEach((btn, idx) => {
-      btn.classList.toggle('is-active', idx === sceneIndex);
-      btn.setAttribute('aria-pressed', idx === sceneIndex ? 'true' : 'false');
-    });
-
-    const aspectKey = `${scene.key}:${i}`;
-    if (!watchedCaseAspects.has(aspectKey)) {
-      watchedCaseAspects.add(aspectKey);
-      trackEvent(`${scene.key} case ${getWorkTitle(work)} watched`);
-    }
-
-    clearTimeout(sceneTimer);
-    sceneTimer = setTimeout(() => {
-      showCaseReelScene((activeScene + 1) % scenes.length);
-    }, duration);
-
-    if (manual) playUI('switch');
-  }
-
-  function openCaseReel() {
-    workVisuals.forEach(otherVis => {
-      if (otherVis !== vis) {
-        const otherController = caseReelControllers.get(otherVis);
-        otherController?.close();
-      }
-    });
-
-    vis.classList.add('reel-open');
-    ov.classList.add('show');
-    trigger.setAttribute('aria-expanded', 'true');
-    showCaseReelScene(0);
-    playUI('switch');
-    trackEvent(`case reel opened: ${getWorkTitle(work)}`);
-  }
-
-  function closeCaseReel() {
-    clearCaseReelTimers();
-    vis.classList.remove('reel-open');
-    ov.classList.remove('show');
-    trigger.setAttribute('aria-expanded', 'false');
-  }
-
-  trigger.setAttribute('aria-expanded', 'false');
-  trigger.addEventListener('click', e => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (ov.classList.contains('show')) {
-      closeCaseReel();
-    } else {
-      openCaseReel();
-    }
-  });
-
-  closeBtn.addEventListener('click', e => {
-    e.preventDefault();
-    e.stopPropagation();
-    closeCaseReel();
-    playUI('switch');
-  });
-
-  vis.addEventListener('mouseenter', e => {
-    if (!isRealMouseEvent(e)) return;
-    playUI('hover');
-  });
+  if (!vis || !inn) return;
 
   vis.addEventListener('mousemove', e => {
     if (!isRealMouseEvent(e)) return;
-    if (isPartialMotionDisabled() || ov.classList.contains('show')) return;
+    if (isPartialMotionDisabled()) return;
 
     const r = vis.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width - 0.5;
@@ -11181,47 +10824,24 @@ function setupCaseReel(work, i) {
     inn.style.transform = `translateX(${x * -7}px) translateY(${y * -7}px)`;
   });
 
-  vis.addEventListener('touchstart', () => {
-    playUI('hover');
-  }, { passive:true });
-
   vis.addEventListener('mouseleave', e => {
     if (!isRealMouseEvent(e)) return;
-    if (ov.classList.contains('show')) return;
     vis.style.transform = 'perspective(820px) rotateX(0) rotateY(0) translateZ(0)';
     inn.style.transform = 'none';
   });
-
-  caseReelControllers.set(vis, {
-    close: closeCaseReel,
-    isOpen: () => ov.classList.contains('show')
-  });
 }
 
-works.forEach(setupCaseReel);
+works.forEach(setupWorkVisualInteraction);
 
 function clearWorkVisualStates() {
   works.forEach(work => {
     const vis = work.querySelector('.work-visual');
     const inn = work.querySelector('.wv-inner');
-    const ov = work.querySelector('.wv-overlay');
-    if (!vis || !inn || !ov) return;
+    if (!vis || !inn) return;
     vis.style.transform = 'perspective(820px) rotateX(0) rotateY(0) translateZ(0)';
     inn.style.transform = 'none';
-    caseReelControllers.get(vis)?.close();
-    ov.classList.remove('show');
   });
 }
-
-document.addEventListener('touchstart', e => {
-  if (e.target?.closest?.('.work-visual')) return;
-  clearWorkVisualStates();
-}, inputCaptureOptions);
-
-document.addEventListener('keydown', e => {
-  if (e.key !== 'Escape') return;
-  clearWorkVisualStates();
-});
 
 /* ─────────────────────────────────────────────
    PARALLAX SCROLL REVEAL - REPEATING FOR WORKS
@@ -12040,6 +11660,11 @@ function isNarratorSpacerPart(part) {
     && !/<(img|video|picture|iframe)\b/i.test(part);
 }
 
+function getNarratorSpacerHeight(part) {
+  const match = String(part || '').match(/height\s*:\s*(\d+(?:\.\d+)?)px/i);
+  return match ? Number(match[1]) : 0;
+}
+
 function isNarratorMediaPart(part) {
   return part.startsWith('<')
     && (/<(img|video|picture|iframe)\b/i.test(part) || /expandable-media-container/i.test(part));
@@ -12049,15 +11674,24 @@ function buildNarratorStoryScenes(htmlText) {
   const parts = String(htmlText || '')
     .split('|||')
     .map(part => part.trim())
-    .filter(Boolean)
-    .filter(part => !isNarratorSpacerPart(part));
+    .filter(Boolean);
 
   const scenes = [];
   let current = null;
 
   parts.forEach(part => {
+    if (isNarratorSpacerPart(part)) {
+      const spacerHeight = getNarratorSpacerHeight(part);
+      if (current && (current.text || current.media.length)) {
+        current.spacerAfter = (current.spacerAfter || 0) + spacerHeight;
+      } else if (scenes.length) {
+        scenes[scenes.length - 1].spacerAfter = (scenes[scenes.length - 1].spacerAfter || 0) + spacerHeight;
+      }
+      return;
+    }
+
     if (isNarratorMediaPart(part)) {
-      if (!current) current = { text: '', media: [] };
+      if (!current) current = { text: '', media: [], spacerAfter: 0 };
       current.media.push(part);
       return;
     }
@@ -12065,14 +11699,14 @@ function buildNarratorStoryScenes(htmlText) {
     if (current && (current.text || current.media.length)) {
       scenes.push(current);
     }
-    current = { text: part, media: [] };
+    current = { text: part, media: [], spacerAfter: 0 };
   });
 
   if (current && (current.text || current.media.length)) {
     scenes.push(current);
   }
 
-  return scenes.length ? scenes : [{ text: String(htmlText || '').trim(), media: [] }];
+  return scenes.length ? scenes : [{ text: String(htmlText || '').trim(), media: [], spacerAfter: 0 }];
 }
 
 function getNarratorStoryScrollRatio() {
@@ -12854,19 +12488,241 @@ function buildStoryInlineMedia(scene, inlineMedia, sceneIndex = 0) {
   return Math.max(0, (items.length - 1) * revealDelay + 760);
 }
 
+function getNarratorInlineTagId(label) {
+  const normalized = String(label || '').trim().toLowerCase();
+  const base = normalized.split(':', 1)[0].trim();
+  if (base === 'flow' || base === 'scheme') return 'flow';
+  if (base === 'list') return 'list';
+  if (base === 'hypothesis') return 'hypothesis';
+  if (base === 'analysis') return 'analysis';
+  if (base === 'test') return 'test';
+  if (base === 'insight') return 'insight';
+  if (base === 'constraint' || base === 'limitation') return 'constraint';
+  if (base === 'problem') return 'problem';
+  if (base === 'result' || base === 'outcome') return 'result';
+  if (base === 'solution') return 'solution';
+  return 'note';
+}
+
+function getNarratorInlinePillKind(label) {
+  const tagId = getNarratorInlineTagId(label);
+  if (tagId === 'hypothesis' || tagId === 'analysis') return 'hypothesis';
+  if (tagId === 'test' || tagId === 'insight') return 'insight';
+  if (tagId === 'constraint' || tagId === 'problem') return 'problem';
+  if (tagId === 'result' || tagId === 'solution') return 'solution';
+  return 'note';
+}
+
+function getNarratorInlinePillLabel(label) {
+  const tagId = getNarratorInlineTagId(label);
+  const lang = document.documentElement.lang.toLowerCase().startsWith('en') ? 'en' : 'ua';
+  const labels = {
+    ua: {
+      insight: 'Інсайт',
+      problem: 'Проблема',
+      solution: 'Рішення',
+      hypothesis: 'Гіпотеза',
+      analysis: 'Аналіз',
+      constraint: 'Обмеження',
+      test: 'Тест',
+      result: 'Результат'
+    },
+    en: {
+      insight: 'Insight',
+      problem: 'Problem',
+      solution: 'Solution',
+      hypothesis: 'Hypothesis',
+      analysis: 'Analysis',
+      constraint: 'Constraint',
+      test: 'Test',
+      result: 'Result'
+    }
+  };
+  return labels[lang][tagId] || String(label || '').trim();
+}
+
+function parseNarratorInlineTokens(text) {
+  const source = String(text || '');
+  const tokens = [];
+  const markerPattern = /(\[\[([^\]]{1,32})\]\]|\{\{([^|{}]{1,32})\|([^{}]+?)\}\})/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = markerPattern.exec(source))) {
+    if (match.index > lastIndex) {
+      tokens.push({ type: 'text', value: source.slice(lastIndex, match.index) });
+    }
+
+    const pillLabel = match[2]?.trim();
+    const markLabel = match[3]?.trim();
+    const markText = match[4];
+    if (pillLabel) {
+      tokens.push({
+        type: 'pill',
+        value: getNarratorInlinePillLabel(pillLabel),
+        kind: getNarratorInlinePillKind(pillLabel)
+      });
+    } else if (markLabel && markText) {
+      const tagId = getNarratorInlineTagId(markLabel);
+      if (tagId === 'flow') {
+        const separatorIndex = markText.indexOf('::');
+        const title = (separatorIndex >= 0 ? markText.slice(0, separatorIndex) : markText).trim();
+        const stepsSource = separatorIndex >= 0 ? markText.slice(separatorIndex + 2) : '';
+        const steps = stepsSource
+          .split(/\s*(?:-|\u2013|\u2014)\s*/)
+          .map(step => step.trim())
+          .filter(Boolean);
+        tokens.push({
+          type: 'flow',
+          value: [title, ...steps].join(' '),
+          title,
+          steps
+        });
+      } else if (tagId === 'list') {
+        const items = markText
+          .split(';')
+          .map(item => item.trim())
+          .filter(Boolean);
+        if (items.length) {
+          const listKindLabel = markLabel.replace(/^list\s*:?/i, '').trim();
+          const listKind = getNarratorInlinePillKind(listKindLabel || markLabel);
+          tokens.push({
+            type: 'list',
+            value: items.join(' '),
+            items,
+            kind: listKind === 'note' ? '' : listKind
+          });
+        }
+      } else {
+      tokens.push({
+        type: 'mark',
+        value: markText,
+        kind: getNarratorInlinePillKind(markLabel)
+      });
+      }
+    }
+    lastIndex = markerPattern.lastIndex;
+  }
+
+  if (lastIndex < source.length) {
+    tokens.push({ type: 'text', value: source.slice(lastIndex) });
+  }
+
+  return tokens.length ? tokens : [{ type: 'text', value: source }];
+}
+
+function getNarratorInlineTextLength(tokens) {
+  return tokens.reduce((total, token) => (
+    token.type === 'text' || token.type === 'mark' || token.type === 'list' || token.type === 'flow' ? total + token.value.length : total
+  ), 0);
+}
+
+function renderNarratorInlineTokens(target, tokens, visibleChars = Infinity) {
+  if (!target) return;
+  const fragment = document.createDocumentFragment();
+  let remaining = Number.isFinite(visibleChars) ? Math.max(0, visibleChars) : Infinity;
+  const seenInline = target._narratorInlineSeen;
+  const animateNewInline = Boolean(seenInline && Number.isFinite(visibleChars));
+
+  for (let tokenIndex = 0; tokenIndex < tokens.length; tokenIndex += 1) {
+    const token = tokens[tokenIndex];
+    if (token.type === 'pill') {
+      if (remaining <= 0) break;
+      const pill = document.createElement('span');
+      pill.className = `story-copy-pill is-${token.kind}`;
+      const pillKey = `pill:${tokenIndex}:${token.value}`;
+      if (animateNewInline && !seenInline.has(pillKey)) {
+        pill.classList.add('is-arriving');
+        seenInline.add(pillKey);
+      }
+      pill.textContent = token.value;
+      fragment.appendChild(pill);
+      continue;
+    }
+
+    if (remaining <= 0) break;
+    if (token.type === 'flow') {
+      const flow = document.createElement('div');
+      flow.className = 'story-copy-flow';
+      const flowKey = `flow:${tokenIndex}:${token.value}`;
+      if (animateNewInline && !seenInline.has(flowKey)) {
+        flow.classList.add('is-arriving');
+        seenInline.add(flowKey);
+      }
+
+      const title = document.createElement('span');
+      title.className = 'story-copy-flow-title';
+      title.textContent = token.title;
+      flow.appendChild(title);
+
+      if (token.steps.length) {
+        const steps = document.createElement('div');
+        steps.className = 'story-copy-flow-steps';
+        token.steps.forEach((stepText, stepIndex) => {
+          if (stepIndex > 0) {
+            const arrow = document.createElement('span');
+            arrow.className = 'story-copy-flow-arrow';
+            arrow.textContent = '\u2192';
+            steps.appendChild(arrow);
+          }
+          const step = document.createElement('span');
+          step.className = 'story-copy-flow-step';
+          step.textContent = stepText;
+          steps.appendChild(step);
+        });
+        flow.appendChild(steps);
+      }
+
+      fragment.appendChild(flow);
+      remaining -= token.value.length;
+      continue;
+    }
+
+    if (token.type === 'list') {
+      const list = document.createElement('ul');
+      list.className = token.kind ? `story-copy-list is-${token.kind}` : 'story-copy-list';
+      token.items.forEach(itemText => {
+        const item = document.createElement('li');
+        item.textContent = itemText;
+        list.appendChild(item);
+      });
+      fragment.appendChild(list);
+      remaining -= token.value.length;
+      continue;
+    }
+
+    const slice = token.value.slice(0, remaining);
+    if (slice) {
+      if (token.type === 'mark') {
+        const mark = document.createElement('span');
+        mark.className = `story-copy-mark is-${token.kind}`;
+        mark.textContent = slice;
+        fragment.appendChild(mark);
+      } else {
+        fragment.appendChild(document.createTextNode(slice));
+      }
+    }
+    remaining -= slice.length;
+  }
+
+  target.replaceChildren(fragment);
+}
+
 function typeNarratorStoryText(target, text, onComplete) {
   clearAllTimers();
-  const chars = Array.from(text || '');
-  const step = Math.max(2, Math.ceil(chars.length / 145));
+  const tokens = parseNarratorInlineTokens(text);
+  const textLength = getNarratorInlineTextLength(tokens);
+  const step = Math.max(2, Math.ceil(textLength / 145));
   let cursor = 0;
-  target.textContent = '';
+  target._narratorInlineSeen = new Set();
+  renderNarratorInlineTokens(target, tokens, 0);
   target.classList.add('is-typing');
 
   function tick() {
-    cursor = Math.min(chars.length, cursor + step);
-    target.textContent = chars.slice(0, cursor).join('');
+    cursor = Math.min(textLength, cursor + step);
+    renderNarratorInlineTokens(target, tokens, cursor);
     scrollNarratorToBottom();
-    if (cursor < chars.length) {
+    if (cursor < textLength) {
       const timerId = setTimeout(tick, 8);
       activeTimers.push(timerId);
     } else {
@@ -12885,6 +12741,8 @@ function createNarratorFeedScene(scene, index) {
   sceneEl.classList.toggle('is-text-only', !scene.media.length);
   const kickerText = index === 0 ? 'ПЕРЕДАЧА ІСТОРІЇ' : '&nbsp;';
   const linkHtml = getStoryCopyCtaHtml(scene.link);
+  const spacerHeight = Math.max(0, Number(scene.spacerAfter) || 0);
+  const spacerHtml = spacerHeight ? `<div style="height:${spacerHeight}px;"></div>` : '';
   sceneEl.innerHTML = `
     <div class="story-copy">
       <div class="story-copy-kicker">${kickerText}</div>
@@ -12894,6 +12752,7 @@ function createNarratorFeedScene(scene, index) {
         <div class="story-inline-media"></div>
       </div>
     </div>
+    ${spacerHtml}
   `;
 
   return {
@@ -12939,6 +12798,8 @@ function buildNarratorMeasureLayout() {
     const kickerText = index === 0 ? 'ПЕРЕДАЧА ІСТОРІЇ' : '&nbsp;';
     const mediaHtml = scene.media.map(() => '<div class="story-media-item story-measure-media"></div>').join('');
     const linkHtml = getStoryCopyCtaHtml(scene.link, true);
+    const spacerHeight = Math.max(0, Number(scene.spacerAfter) || 0);
+    const spacerHtml = spacerHeight ? `<div style="height:${spacerHeight}px;"></div>` : '';
     sceneEl.innerHTML = `
       <div class="story-copy">
         <div class="story-copy-kicker">${kickerText}</div>
@@ -12948,8 +12809,13 @@ function buildNarratorMeasureLayout() {
           <div class="story-inline-media is-ready">${mediaHtml}</div>
         </div>
       </div>
+      ${spacerHtml}
     `;
-    sceneEl.querySelector('.story-copy-text').textContent = scene.text || '';
+    renderNarratorInlineTokens(
+      sceneEl.querySelector('.story-copy-text'),
+      parseNarratorInlineTokens(scene.text),
+      Infinity
+    );
     feed.appendChild(sceneEl);
   });
 
@@ -13271,9 +13137,271 @@ function showProductCaseNarrator() {
     narText.style.opacity = '1';
     openNarratorModal();
     currentNarWork = productStoryWork;
-    typeWriter('У мене виникла ідея: космічний sci-fi з пультами управління та багатошаровим наративом. Концепт видавався мені глибоким і мав би сам собою, за умови акуратного візуалу, привернути увагу та спонукати до співпраці. Мовляв, дивіться: креативний спеціаліст із потужною технічною базою. ||| <div style="height:12px;"></div> ||| Але після запуску ресурсу фідбек був далеким від очікуваного. Я бачив, що сайт відвідують, але на ньому не затримуються й не повертаються. ||| <div style="height:12px;"></div> ||| Я засмутився. Але не відступив. Окей, результат незадовільний, але тепер ти знаєш, що у сайту низька конверсія. Ти ж дизайнер. Ти же знаєш, що робити із низькою конверсією. ||| <div style="height:12px;"></div> ||| Потрібно було копати глибше. Я прикріпив логування до ключових дій. Зробив це акуратно, по мінімуму, щоб не порушити GDPR. І поглянув на логи. ||| <div style="height:12px;"></div> ||| Першим деструктивним елементом був онбординг. Раніше мені здавалося, що детальна екскурсія із 9 кроків, із вибором режиму анімації та розповіддю про мене як особистість — крута ідея. Але користувачі не хотіли багато читати. І просто йшли із сайту, навіть не догортавши до робіт. Ось як це виглядало на початку: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/firstIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| Я почав реформатувати онбординг. Роботи стали ближчими для юзера. Тепер їх відділяв лише режим анімації, а решта онбордингу була скорочена до 4 кроків і показувалася безпосередньо там, де це справді актуально: біля секції з кейсами. ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/secondIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> |||  У логах я побачив, що люди почали гортати сторінку глибше, клацали на кейси. Прийшло кілька листів із питаннями від рекрутерів. Отже, я рухався у правильному напрямку. Відтепер мені хотілося взагалі не закривати головний екран. Щоб сторінка показувалася юзеру одразу. Для цього треба було вирішити проблему з вибором режиму анімації. Він був важливим. Адже слабкі девайси не тягнуть велику кількість трансформацій, безкінечний автоплей і пачки медіа. По-перше, я оптимізував медіа-менеджмент сторінки за допомогою Codex від Open AI. По-друге, придумав скрипт, який самостійно підлаштовує режим анімації під можливості девайса. Нарешті юзер-флоу став логічним, нічого не закриває основну сторінку: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/thirdIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| Логи стали стабільно кращими. Хоча конверсія все ще була не на висоті. Так я прийшов до наступної важливої зміни: урізноманітнення UX. Раніше сторінка була насичена матеріалом, але... візуально одноманітною. Не було вау-ефекту. А саме це потрібно для того, щоб культивувати імпульс співпраці. Бо зараз кожен може зробити сайт, хай і візуально шаблонний. Але далеко не кожен може проєктувати унікальний користувацький досвід. І так я додав секцію-сюрприз, штучний інтелект, а також унормував візуали кейсів. ||| <div style="height:12px;"></div> ||| Раніше було ось так: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fourthIterationBefore.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| А стало так: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fourthIterationAfter.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| І це ще далеко не фініш. Я продовжую вивчати поведінку користувачів, експериментувати й розвивати свій продукт. Попри складнощі війни в тому місці, де я зараз живу, попри страх, попри початковий поганий фідбек. Мабуть, описане найкраще характеризує мій процес мислення. Я не відступаю, коли бачу невдачу, а намагаюся зрозуміти, чому так трапилося і як змінити систему, щоб досягти успіху. Я вважаю, що це мислення справжнього продуктового дизайнера, яким я мрію стати.');
+    typeWriter('{{Flow|Схема моєї активності в межах цього кейсу::Логування - аналіз - пропозиції - тестування}} У мене виникла ідея: космічний sci-fi з пультами управління та багатошаровим наративом. Концепт видавався глибоким і мав би сам собою, за умови акуратного візуалу, привернути увагу та спонукати до співпраці. Мовляв, дивіться: креативний спеціаліст із потужною технічною базою. ||| <div style="height:12px;"></div> ||| Але після запуску ресурсу [[Problem]] {{Problem|фідбек був далеким від очікуваного.}} Я бачив, що сайт відвідують, але на ньому не затримуються й не повертаються. ||| <div style="height:12px;"></div> ||| Я засмутився. Але не відступив. [[Insight]] Окей, результат незадовільний, але тепер я знаю, що у сайту низька конверсія. {{Insight|Я ж дизайнер. Я же знаю, що робити з низькою конверсією.}} ||| <div style="height:12px;"></div> ||| [[Analysis]] Потрібно було копати глибше. {{Analysis|Я прикріпив логування}} до ключових дій. Зробив це акуратно, по мінімуму, щоб не порушити GDPR. І {{Analysis|поглянув на логи.}} ||| <div style="height:12px;"></div> ||| [[Problem]] {{Problem|Першим деструктивним елементом був онбординг.}} Раніше мені здавалося, що детальна екскурсія із {{Problem|9 кроків,}} із вибором режиму анімації та розповіддю про мене як особистість — крута ідея. Але {{Problem|користувачі не хотіли багато читати}}. І просто йшли із сайту, навіть не догортавши до робіт. Ось як це виглядало на початку: ||| <div class="expandable-media-container is-anti-pattern"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/firstIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| [[Solution]] {{Solution|Я почав реформатувати онбординг, щоб роботи стали ближчими для юзера.}} Тепер їх відділяв лише режим анімації, а решта онбордингу була скорочена до 4 кроків і показувалася безпосередньо там, де це справді актуально: біля секції з кейсами. ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/secondIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> |||  [[Result]] У логах я побачив, що {{Result|люди почали гортати сторінку глибше, клацали на кейси. Прийшло кілька листів}} із питаннями від рекрутерів. Отже, я рухався у правильному напрямку. Відтепер мені хотілося взагалі не закривати головний екран. Щоб сторінка показувалася юзеру одразу. Для цього треба було вирішити проблему з вибором режиму анімації. Він був важливим. Адже слабкі девайси не тягнуть велику кількість трансформацій, безкінечний автоплей і пачки медіа. {{List|По-перше, я оптимізував медіа-менеджмент сторінки за допомогою Codex від Open AI; По-друге, придумав скрипт, який самостійно підлаштовує режим анімації під можливості девайса.}} Нарешті юзер-флоу став логічним, нічого не закриває основну сторінку: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/thirdIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| Логи стали стабільно кращими. Хоча конверсія все ще була не на висоті. Так я прийшов до наступної важливої зміни: урізноманітнення UX. Раніше сторінка була насичена матеріалом, але... візуально одноманітною. [[Problem]] {{Problem|Не було вау-ефекту.}} А саме це потрібно для того, щоб культивувати імпульс співпраці. Бо зараз кожен може зробити сайт, хай і візуально шаблонний. Але далеко не кожен може проєктувати унікальний користувацький досвід. [[Solution]] {{Solution|І так я додав секцію-сюрприз, штучний інтелект,}} а також унормував візуали кейсів. ||| <div style="height:12px;"></div> ||| Раніше було ось так: ||| <div class="expandable-media-container is-anti-pattern"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fourthIterationBefore.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| А стало так: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fourthIterationAfter.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| [[Result]] {{Result|Тепер юзери можуть реально взаємодіяти з контентом, з моєю діджитал-персоналіті.}} Так би мовити, відчути себе в активному космосі, а не в прохолодній контент-порожнечі на самоті. ||| <div style="height:12px;"></div> ||| Трохи більше розкажу про роботу над AI. Як API із фінансових міркувань я тут обрав Google AppScript. Накидав верхнерівнево вайрфрейм інтерфейсу: ||| <img src="/productCase/wireframe.png" style="width:180px; height:auto; display:block; margin:10px 0; border-radius: 8px;"> ||| Як працює мій Alex AI? {{List|Запит користувача; API Google AppScript; Системний промпт із JSON-розміткою; Google Gemini пише відповідь і фільтрує JSON; API; Front End парсить текст і JSON; відповідь + рекомендації на сайті}} Настав час для ще однієї важливої зміни - навігації по ключовим аспектам кейсів за допомогою панелі інструментів. [[Hypothesis]] На початку цього проєкту мені здавалося, що {{Hypothesis|оригінальний UX має свідчити про глибину мого мислення.}} Бо усталений, спокійний сценарій із натисканням на кнопки може спроєктувати будь-хто. ||| <div style="height:12px;"></div> ||| [[Problem]] В теорії звучить сильно. На практиці, судячи з аналізу логів, виявив, що {{Problem|це просто заплутувало користувачів.}} У людей не було часу розбиратися з моїми ребусами. Із десятків сесій лише в одній спостерігалося використання панелі інструментів. Це свідчило, що поточна механіка помилкова. {{Problem|Найважливіша частина інформації (мета, структура, ефект кейсів) залишалася непоміченою,}} навіть попри те, що в онбордингу була інструкція. Це треба було змінювати: ||| <div class="expandable-media-container is-anti-pattern"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fifthIterationBefore1.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| Як? [[Analysis]] {{Analysis|Оптимальним видавався шлях розмістити всю інформацію про кейс в одному місці.}} [[Problem]] У межах наявного user-flow це було можливо зробити лише в {{Problem|панелі наратора. Котра, насправді, теж не виглядала надійно.}} Я обирав форму чат-віджета з тих міркувань, щоб зробити перемикання між кейсами безкошвним. Але подібне рішення потягло за собою інші мінуси. {{List:Problem|По-перше, максимальна ширина контенту 180px не сприяла демонстрації візуалів.; По-друге, дрібненький текст у правому нижньому куті незручно читати. Суть кейсу, всі дизайн-рішення автоматично сприймалися як щось другорядне, неважливе.; У чат-віджеті були вкладені медіа, для яких була потрібна сумнівна float-панель поверх уже відкритої панелі наратора.; На десктопах це просто виглядало хаотично. А на мобільних девайсах заважало нормальній навігації.}} Я усвідомив, що в погоні за креативністю допустився серйозної помилки, яка відштовхувала користувачів: ||| <div class="expandable-media-container is-anti-pattern"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fifthIterationBefore2.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| [[Solution]] Терміново зробив фікс. Для поточного UX-сценарію {{Solution|найкращим рішенням було модальне вікно.}} Воно поєднувало безшовність чат-віджета й виключало хаотичне нагромадження елементів на сторінці: ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/fifthIterationAfter.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| [[Result]] Відтепер {{Result|UX став інтуїтивно зрозумілим. Тому його не треба окремо пояснювати в онбордингу. Нарешті я домігся того, що можна прибрати всі зайві нашарування.}} ||| <div style="height:12px;"></div> ||| Перейшов до косметичних змін. Найперше збалансував hero космічними променями, щоб уникнути розриву в центрі. І трошки пофіксив механіку світяшки на курсорі, щоб вона не заходила в textarea, бо незручно друкувати світлий текст, коли під ним білуватий вогник. ||| <div class="expandable-media-container"><svg class="emc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--ion)"><path d="M8 3H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M9 17h6M9 13h6"/></svg><div class="emc-content"><video autoplay muted playsinline loop src="./productCase/sixthIteration.mp4" style="width:100%; height:auto; display:block; border-radius: 5px;"></video><div class="expandable-label">Натисніть сюди, щоб збільшити</div></div></div> ||| І це ще далеко не фініш. Я продовжую вивчати поведінку користувачів, експериментувати й розвивати свій продукт. Попри складнощі війни в тому місці, де я зараз живу, попри страх, попри початковий поганий фідбек. Мабуть, {{Hypothesis|описане найкраще характеризує мій процес мислення. Я не відступаю, коли бачу невдачу, а намагаюся зрозуміти, чому так трапилося і як змінити систему, щоб досягти успіху.}} Я вважаю, що це мислення справжнього продуктового дизайнера, яким я мрію стати.');
   }, 160);
   activeTimers.push(timerId);
+}
+
+function initProductCaseExperience() {
+  const carousel = document.getElementById('instaCarousel');
+  if (!carousel) return;
+  const track = carousel.querySelector('.carousel-track');
+  const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+  const countEl = carousel.querySelector('.carousel-count');
+  const prevBtn = carousel.querySelector('.carousel-btn.prev');
+  const nextBtn = carousel.querySelector('.carousel-btn.next');
+  let idx = 0;
+  let autoTimer = null;
+  let isPaused = false;
+  const AUTO_DELAY = 3200;
+  const formatCount = value => String(value).padStart(2, '0');
+  track.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', () => {
+      img.removeAttribute('src');
+      img.removeAttribute('alt');
+      img.hidden = true;
+    }, { once: true });
+  });
+  function updateCarousel() {
+    if (!slides.length) return;
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.columnGap || style.gap || '0') || 0;
+    track.style.transform = `translateX(${-idx * (slides[0].offsetWidth + gap)}px)`;
+    if (countEl) countEl.textContent = `${formatCount(idx + 1)} / ${formatCount(slides.length)}`;
+  }
+  function stopAuto() {
+    clearTimeout(autoTimer);
+    autoTimer = null;
+  }
+  function scheduleAuto() {
+    stopAuto();
+    if (isPaused || slides.length < 2) return;
+    autoTimer = setTimeout(() => {
+      goTo(idx + 1, { manual: false });
+    }, AUTO_DELAY);
+  }
+  function goTo(nextIndex, { manual = false } = {}) {
+    if (!slides.length) return;
+    idx = (nextIndex + slides.length) % slides.length;
+    updateCarousel();
+    if (manual) {
+      isPaused = false;
+    }
+    scheduleAuto();
+  }
+  nextBtn.addEventListener('click',()=> goTo(idx + 1, { manual: true }));
+  prevBtn.addEventListener('click',()=> goTo(idx - 1, { manual: true }));
+  let startX = null;
+  track.addEventListener('touchstart',e=>{ startX = e.touches[0].clientX; });
+  track.addEventListener('touchend',e=>{
+    if(startX===null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx)>40){
+      goTo(idx + (dx < 0 ? 1 : -1), { manual: true });
+    }
+    startX = null;
+  });
+  carousel.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight') goTo(idx + 1, { manual: true });
+    if(e.key==='ArrowLeft') goTo(idx - 1, { manual: true });
+  });
+  carousel.addEventListener('mouseenter', ()=> { isPaused = true; stopAuto(); });
+  carousel.addEventListener('mouseleave', ()=> { isPaused = false; scheduleAuto(); });
+  carousel.addEventListener('focusin', ()=> { isPaused = true; stopAuto(); });
+  carousel.addEventListener('focusout', ()=> { isPaused = false; scheduleAuto(); });
+  const productCTA = document.querySelector('.product-case-cta');
+  const productCaseLeft = document.querySelector('.product-case-left');
+  const productCaseRight = document.querySelector('.product-case-right');
+  const carouselTitle = document.querySelector('.carousel-title');
+  const productMobileLayout = window.matchMedia('(max-width: 950px)');
+  const syncProductCarouselPlacement = () => {
+    if (!productCTA || !productCaseLeft || !productCaseRight || !carouselTitle || !carousel) return;
+    if (productMobileLayout.matches) {
+      productCTA.after(carousel, carouselTitle);
+    } else {
+      productCaseRight.append(carouselTitle, carousel);
+    }
+    updateCarousel();
+  };
+  if (productCTA) {
+    productCTA.addEventListener('click', (event)=> {
+      event.preventDefault();
+      event.stopPropagation();
+      productCTA.classList.add('clicked');
+      setTimeout(()=> productCTA.classList.remove('clicked'), 430);
+      if (event.detail > 0 && document.activeElement === productCTA) productCTA.blur();
+      if (typeof trackEvent === 'function') trackEvent('product case cosmos story clicked');
+      if (typeof showProductCaseNarrator === 'function') showProductCaseNarrator();
+    });
+  }
+  const planetScene = document.getElementById('planetScene');
+  const planetFallback = document.getElementById('planetFallback');
+  const neptuneModel = document.getElementById('neptuneModel');
+  const productSection = document.querySelector('.product-case-section');
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+  let productSectionVisible = false;
+  let planetModelNearViewport = false;
+  let neptuneModelMounted = Boolean(neptuneModel?.parentElement);
+  let neptuneModelLoaded = false;
+  let neptuneModelError = false;
+  const neptuneModelParent = neptuneModel?.parentElement || null;
+  const neptuneModelSlot = document.createComment('neptune model slot');
+  const neptuneModelSrc = neptuneModel?.dataset.modelSrc || '';
+  const isPlanetMotionLite = () => document.body.classList.contains('motion-lite');
+  if (neptuneModelParent && neptuneModel) {
+    neptuneModelParent.insertBefore(neptuneModelSlot, neptuneModel);
+  }
+  const setNeptuneModelVisible = visible => {
+    if (!neptuneModel) return;
+    neptuneModel.style.opacity = visible ? '1' : '0';
+    neptuneModel.style.pointerEvents = visible ? '' : 'none';
+  };
+  const setPlanetFallbackVisible = visible => {
+    if (!planetFallback) return;
+    planetFallback.style.display = visible ? 'block' : 'none';
+  };
+  const syncPlanetFallback = () => {
+    const showFallback = isPlanetMotionLite() || !neptuneModelLoaded || neptuneModelError;
+    setPlanetFallbackVisible(showFallback);
+    setNeptuneModelVisible(!showFallback);
+  };
+  const unmountNeptuneModel = () => {
+    if (!neptuneModel) return;
+    neptuneModel.removeAttribute('auto-rotate');
+    neptuneModel.removeAttribute('src');
+    neptuneModelLoaded = false;
+    neptuneModelError = false;
+    setNeptuneModelVisible(false);
+    if (neptuneModel.parentElement) neptuneModel.remove();
+    neptuneModelMounted = false;
+    syncPlanetFallback();
+  };
+  const mountNeptuneModel = () => {
+    if (!neptuneModelParent || !neptuneModel || neptuneModelMounted) return;
+    neptuneModelParent.insertBefore(neptuneModel, neptuneModelSlot.nextSibling);
+    neptuneModelMounted = true;
+  };
+  const hydrateNeptuneModel = () => {
+    if (!neptuneModel || isPlanetMotionLite() || !planetModelNearViewport) return;
+    mountNeptuneModel();
+    if (!neptuneModel.getAttribute('src') && neptuneModelSrc) {
+      neptuneModel.setAttribute('src', neptuneModelSrc);
+    }
+    syncPlanetFallback();
+  };
+  if (isPlanetMotionLite()) {
+    unmountNeptuneModel();
+  } else {
+    syncPlanetFallback();
+  }
+  const setPlanetAutoRotate = enabled => {
+    if (!neptuneModel) return;
+    if (enabled && productSectionVisible && !isPlanetMotionLite()) {
+      neptuneModel.setAttribute('auto-rotate', '');
+    } else {
+      neptuneModel.removeAttribute('auto-rotate');
+    }
+  };
+  const updatePlanet = () => {
+    if (!planetScene || !productSection) return;
+    const narrow = window.matchMedia('(max-width: 950px)').matches;
+    if (isPlanetMotionLite()) {
+      setPlanetAutoRotate(false);
+      if (!narrow) {
+        planetScene.style.setProperty('--planet-translate-x', '8%');
+        planetScene.style.setProperty('--planet-translate-y', '0px');
+        planetScene.style.setProperty('--planet-tilt', '-4deg');
+        if (neptuneModel) neptuneModel.setAttribute('camera-orbit', '-36deg 72deg 190%');
+      }
+      return;
+    }
+    setPlanetAutoRotate(true);
+    const rect = productSection.getBoundingClientRect();
+    const viewport = window.innerHeight || document.documentElement.clientHeight || 1;
+    const progress = clamp((viewport - rect.top) / (viewport + rect.height), 0, 1);
+    const startX = narrow ? 8 : 32;
+    const endX = narrow ? -4 : -22;
+    const offset = startX + (endX - startX) * progress;
+    const lift = (0.5 - progress) * (narrow ? 14 : 32);
+    const tilt = -5 + progress * (narrow ? 11 : 13);
+    planetScene.style.setProperty('--planet-translate-x', `${offset.toFixed(2)}%`);
+    planetScene.style.setProperty('--planet-translate-y', `${lift.toFixed(2)}px`);
+    planetScene.style.setProperty('--planet-tilt', `${tilt.toFixed(2)}deg`);
+    if (neptuneModel) {
+      const orbit = -36 + progress * (narrow ? 132 : 148);
+      const phi = 72 - progress * (narrow ? 9 : 11);
+      neptuneModel.setAttribute('camera-orbit', `${orbit.toFixed(2)}deg ${phi.toFixed(2)}deg 190%`);
+    }
+  };
+  const syncPlanetMode = () => {
+    if (isPlanetMotionLite()) {
+      unmountNeptuneModel();
+    } else {
+      hydrateNeptuneModel();
+      syncPlanetFallback();
+      setPlanetAutoRotate(true);
+    }
+    updatePlanet();
+  };
+  let ticking = false;
+  window.addEventListener('scroll', ()=> {
+    if (!ticking) {
+      window.requestAnimationFrame(()=> { updatePlanet(); ticking=false; });
+      ticking = true;
+    }
+  });
+  neptuneModel?.addEventListener('load', () => {
+    neptuneModelLoaded = true;
+    neptuneModelError = false;
+    syncPlanetFallback();
+    updatePlanet();
+  });
+  neptuneModel?.addEventListener('error', () => {
+    neptuneModelError = true;
+    syncPlanetFallback();
+  });
+  if (productMobileLayout.addEventListener) {
+    productMobileLayout.addEventListener('change', syncProductCarouselPlacement);
+  } else if (productMobileLayout.addListener) {
+    productMobileLayout.addListener(syncProductCarouselPlacement);
+  }
+  if (planetScene && neptuneModel) {
+    if ('IntersectionObserver' in window) {
+      const planetLoadObserver = new IntersectionObserver(entries => {
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        planetModelNearViewport = true;
+        hydrateNeptuneModel();
+        planetLoadObserver.disconnect();
+      }, { rootMargin: '120px 0px', threshold: 0 });
+      planetLoadObserver.observe(planetScene);
+    } else {
+      planetModelNearViewport = true;
+      hydrateNeptuneModel();
+    }
+  }
+  if (productSection && neptuneModel) {
+    if ('IntersectionObserver' in window) {
+      const planetVisibilityObserver = new IntersectionObserver(entries => {
+        productSectionVisible = entries.some(entry => entry.isIntersecting && entry.intersectionRatio > 0);
+        setPlanetAutoRotate(true);
+      }, { threshold: 0.01 });
+      planetVisibilityObserver.observe(productSection);
+    } else {
+      productSectionVisible = true;
+    }
+  }
+  if ('MutationObserver' in window) {
+    new MutationObserver(syncPlanetMode).observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  }
+  window.addEventListener('portfolio:motion-mode-change', syncPlanetMode);
+  window.addEventListener('resize', ()=> { syncProductCarouselPlacement(); updatePlanet(); });
+  syncProductCarouselPlacement();
+  updateCarousel();
+  scheduleAuto();
+  updatePlanet();
 }
 
 // Add Details button to each work
@@ -13328,6 +13456,7 @@ document.addEventListener('keydown', e => {
   }
 });
 
+initProductCaseExperience();
 initDetailsButtons();
 initDetailsButtonShimmer();
 
